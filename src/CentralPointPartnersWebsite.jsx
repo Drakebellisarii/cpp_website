@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Analytics } from "@vercel/analytics/react"
 const MotionLink = motion(Link);
 
 
 export default function CentralPointPartnersWebsite() {
   return (
+    <>
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-blue-50 to-purple-50 text-slate-700 font-serif overflow-x-hidden">
       {/* Animated Watercolor background elements */}
       <div className="fixed inset-0 opacity-20 pointer-events-none">
@@ -690,5 +692,7 @@ export default function CentralPointPartnersWebsite() {
         </div>
       </footer>
     </div>
+    <Analytics />
+    </>
   );
 }
