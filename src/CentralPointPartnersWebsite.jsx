@@ -2,11 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Analytics } from "@vercel/analytics/react"
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+
 const MotionLink = motion(Link);
-
-
-
 export default function CentralPointPartnersWebsite() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
@@ -105,7 +102,7 @@ export default function CentralPointPartnersWebsite() {
         </motion.div>
       </div>
 
-      <header className="relative p-6 flex justify-between items-center bg-white/80 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-slate-200/50">
+      <header className="relative p-6 flex justify-between items-center bg-white/80 backdrop-blur-sm shadow-lg top-0 z-50 border-b border-slate-200/50">
         <motion.h1 
           className="text-3xl font-light tracking-wide text-slate-600 italic"
           initial={{ opacity: 0, y: -20 }}
@@ -114,27 +111,37 @@ export default function CentralPointPartnersWebsite() {
           Guided Peak Potential
         </motion.h1>
         <nav className="space-x-8 flex items-center">
-  {['About', 'Services', 'Contact'].map((item, i) => {
-    const isAbout = item === 'About';
-    const baseProps = {
-      className:
-        "text-slate-500 hover:text-slate-700 text-lg font-light tracking-wide transition-all duration-300 hover:underline decoration-2 decoration-blue-300 underline-offset-4",
-      initial: { opacity: 0, y: -10 },
-      animate: { opacity: 1, y: 0 },
-      transition: { delay: i * 0.1 + 0.3 }
-    };
+        {['About', 'Services', 'Contact'].map((item, i) => {
+  const isAbout = item === 'About';
+  const isContact = item === 'Contact';
+  const baseProps = {
+    className: "text-slate-500 hover:text-slate-700 text-lg font-light tracking-wide transition-all duration-300 hover:underline decoration-2 decoration-blue-300 underline-offset-2 decoration-blue-300 underline-offset-4",
+    initial: { opacity: 0, y: -10 },
+    animate: { opacity: 1, y: 0 },
+    transition: { delay: i * 0.1 + 0.3 }
+  };
 
-    return isAbout ? (
+  if (isAbout) {
+    return (
       <MotionLink key={item} to="/about" {...baseProps}>
         About
       </MotionLink>
-    ) : (
+    );
+  } else if (isContact) {
+    return (
+      <MotionLink key={item} to="/contact" {...baseProps}>
+        Contact
+      </MotionLink>
+    );
+  } else {
+    return (
       <motion.a key={item} href={`#${item.toLowerCase()}`} {...baseProps}>
         {item}
       </motion.a>
     );
-  })}
-</nav>
+  }
+})}
+        </nav>
       </header>
 
       {/* Hero Section with Mountain Silhouettes */}
@@ -223,10 +230,11 @@ export default function CentralPointPartnersWebsite() {
             initial={{ opacity: 0, y: 40 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ delay: 1.2, duration: 1 }}>
-            <motion.button 
-              className="px-8 py-3 bg-white/70 backdrop-blur-sm text-slate-600 rounded-full hover:bg-white/90 transition-all duration-300 shadow-lg font-light tracking-wide border border-slate-200/50 hover:shadow-xl"
+           <motion.a 
+              href="/contact"
+              className="inline-block px-8 py-3 bg-white/70 backdrop-blur-sm text-slate-600 rounded-full hover:bg-white/90 transition-all duration-300 shadow-lg font-light tracking-wide border border-slate-200/50 hover:shadow-xl"
               whileHover={{ 
-                scale: 1.05, 
+                scale: 1.05,
                 y: -3,
                 boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
               }}
@@ -241,8 +249,9 @@ export default function CentralPointPartnersWebsite() {
               }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}>
               Begin Your Journey
-            </motion.button>
-            <motion.button 
+            </motion.a>
+            <motion.a 
+              href="#services"
               className="px-8 py-3 bg-black/70 text-slate-100 rounded-full hover:bg-slate-500/30 transition-all duration-300 shadow-lg font-light tracking-wide border border-slate-300/50"
               whileHover={{ 
                 scale: 1.05, 
@@ -260,7 +269,7 @@ export default function CentralPointPartnersWebsite() {
               }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}>
               Explore Services
-            </motion.button>
+            </motion.a>
           </motion.div>
         </div>
 
@@ -318,58 +327,87 @@ export default function CentralPointPartnersWebsite() {
         </motion.div>
       </section>
 
-       {/* New Change Your Life Now Animation + Buckets Section */}
-       <section className="py-20 px-6 bg-white/20 backdrop-blur-sm">
-        <motion.h2
-          className="text-5xl text-center font-light text-slate-600 italic mb-12"
-          animate={{ y: [0, -4, 0], opacity: [0.8, 1, 0.8] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
-          Change Your Life Now
-        </motion.h2>
+      {/* New Change Your Life Now Animation + Buckets Section */}
+<section className="py-20 px-6 bg-gradient-to-b from-slate-400/60 via-slate-600/80 to-slate-900">
+<motion.h2
+    className="text-5xl text-center font-light text-white italic mb-12"
+    animate={{ y: [0, -4, 0], opacity: [0.8, 1, 0.8] }}
+    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
+    Change Your Life Now
+  </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-11 max-w-7xl mx-auto">
-          {[
-            {
-              title: "Reach for the Peak",
-              subtitle: "Dream Big",
-              text: "Visualize your highest self and pursue that vision fearlessly.",
-              img: "/Dream.png"
-            },
-            {
-              title: "Overcome Obstacles",
-              subtitle: "Break Through",
-              text: "Face challenges with resilience and turn adversity into strength.",
-              img: "/Challenge.png"
-            },
-            {
-              title: "Redifine Yourself",
-              subtitle: "Transform",
-              text: "Embrace growth, change your mindset, and shift your path.",
-              img: "/Transform.png"
-            },
-            {
-              title: "Stay Accountable",
-              subtitle: "Keep Climbing",
-              text: "Build habits, track progress, and celebrate every step.",
-              img: "/Birds.png"
-            }
-          ].map((bucket, i) => (
-            <motion.div
-              key={i}
-              className="bg-white/70 border border-slate-200/30 rounded-3xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300 backdrop-blur-sm"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2, duration: 0.8 }}
-              viewport={{ once: true }}>
-              <img src={bucket.img} alt={bucket.title} className="w-full h-40 object-cover rounded-xl mb-4" />
-              <h4 className="text-xl font-light text-slate-600 italic mb-1">{bucket.title}</h4>
-              <h5 className="text-md font-light text-slate-500 mb-2">{bucket.subtitle}</h5>
-              <p className="text-sm font-light text-slate-500">{bucket.text}</p>
-            </motion.div>
-          ))}
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-11 max-w-7xl mx-auto">
+    {[
+      {
+        title: "Reach for the Peak",
+        subtitle: "Dream Big",
+        text: "Visualize your highest self and pursue that vision fearlessly.",
+        img: "/Dream.png"
+      },
+      {
+        title: "Overcome Obstacles",
+        subtitle: "Break Through",
+        text: "Face challenges with resilience and turn adversity into strength.",
+        img: "/Challenge.png"
+      },
+      {
+        title: "Redifine Yourself",
+        subtitle: "Transform",
+        text: "Embrace growth, change your mindset, and shift your path.",
+        img: "/Transform.png"
+      },
+      {
+        title: "Stay Accountable",
+        subtitle: "Keep Climbing",
+        text: "Build habits, track progress, and celebrate every step.",
+        img: "/Birds.png"
+      }
+    ].map((bucket, i) => (
+      <motion.div
+        key={i}
+        className="relative group cursor-pointer"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        whileHover={{ scale: 1.2 }}
+        transition={{ delay: i * 0.2, duration: 0.4 }}
+        viewport={{ once: true }}>
+        
+        {/* Animated Gold Border Sliver */}
+        <div className="absolute inset-0 rounded-3xl overflow-hidden">
+          <div className="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r from-transparent via-yellow-400 to-transparent bg-clip-border animate-border-spin opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
-      </section>
+        
+        {/* Card Content */}
+        <div className="relative bg-white rounded-3xl shadow-lg p-6 text-center backdrop-blur-sm transition-all duration-300 group-hover:shadow-xl">
+          <img src={bucket.img} alt={bucket.title} className="w-full h-40 object-cover rounded-xl mb-4" />
+          <h4 className="text-xl font-light text-slate-600 italic mb-1">{bucket.title}</h4>
+          <h5 className="text-md font-light text-slate-500 mb-2">{bucket.subtitle}</h5>
+          <p className="text-sm font-light text-slate-500">{bucket.text}</p>
+        </div>
+      </motion.div>
+    ))}
+  </div>
 
+  <style jsx>{`
+    @keyframes border-spin {
+      0% {
+        transform: rotate(0deg);
+        background: conic-gradient(from 0deg, transparent 70%, #facc15 85%, #f59e0b 90%, #facc15 95%, transparent 100%);
+      }
+      100% {
+        transform: rotate(360deg);
+        background: conic-gradient(from 360deg, transparent 70%, #facc15 85%, #f59e0b 90%, #facc15 95%, transparent 100%);
+      }
+    }
+    
+    .animate-border-spin {
+      animation: border-spin 2s linear infinite;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: xor;
+      padding: 2px;
+    }
+  `}</style>
+</section>
             {/* Work with Connie Bellisari Section */}
 <section className="relative py-24 px-6 bg-gradient-to-br from-slate-100/70 to-blue-100/70 overflow-hidden">
   <div className="max-w-7xl mx-auto">
@@ -510,6 +548,7 @@ export default function CentralPointPartnersWebsite() {
     </div>
   </div>
 </section>
+
       {/* About Section */}
       <section 
         className="relative flex items-center justify-center min-h-[75vh] px-6 overflow-hidden bg-cover bg-center"
@@ -518,7 +557,7 @@ export default function CentralPointPartnersWebsite() {
           className="relative z-10 max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 60 }} 
           whileInView={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 6 }}
+          transition={{ duration: 2 }}
           viewport={{ once: true }}>
           <motion.h3 
             className="text-4xl font-light mb-8 text-slate-900 italic"
@@ -531,8 +570,6 @@ export default function CentralPointPartnersWebsite() {
           </motion.h3>
           <motion.div 
             className="backdrop-blur-sm p-5 rounded-3xl shadow-lg border border-slate-200/30"
-            whileInView={{ scale: [0.98, 1, 0.98] }}
-            transition={{ duration: 8, repeat: onscroll, ease: "easeInOut" }}
             whileHover={{ 
               scale: 1.02,
               boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
@@ -552,7 +589,7 @@ export default function CentralPointPartnersWebsite() {
 
 
       {/* Section 1: Pathways to Growth */}
-      <section id="services" className="relative py-24 px-6 bg-gradient-to-br from-purple-50/70 to-pink-50/70 overflow-hidden">
+      <section id="services" className="relative py-24 px-6 bg-white overflow-hidden">
         {/* Background floating gradient blobs */}
         <motion.div
           className="absolute top-[-100px] left-[-100px] w-80 h-80 bg-pink-100 rounded-full blur-3xl opacity-30 z-0"
@@ -575,13 +612,13 @@ export default function CentralPointPartnersWebsite() {
             {
               title: "Personal Coaching",
               desc: "One-on-one sessions that honor your unique journey, offering guidance as you navigate toward your authentic self.",
-              color: "from-blue-100/50 to-purple-100/50",
+              color: "bg-gradient-to-br from-slate-600 to-slate-700",
               icon: "🌱",
             },
             {
               title: "Career Guidance",
               desc: "Collaborative experiences where shared wisdom creates a tapestry of growth, connection, and mutual support.",
-              color: "from-purple-100/50 to-pink-100/50",
+              color: "bg-gradient-to-br from-slate-600 to-slate-700",
               icon: "🎯",
             },
           ].map((service, index) => (
@@ -606,10 +643,10 @@ export default function CentralPointPartnersWebsite() {
                 {service.icon}
               </motion.div>
 
-              <h4 className="text-3xl font-semibold text-slate-700 mb-6 group-hover:text-purple-600 transition-colors duration-300">
+              <h4 className="text-3xl font-semibold text-white mb-6 group-hover:text-purple-600 transition-colors duration-300">
                 {service.title}
               </h4>
-              <p className="text-slate-600 font-light leading-relaxed text-lg">{service.desc}</p>
+              <p className="text-white font-light leading-relaxed text-lg">{service.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -714,127 +751,210 @@ export default function CentralPointPartnersWebsite() {
         </div>
       </section>
 
-      {/* Section 3: Pricing */}
-      <section className="relative py-24 px-6 bg-gradient-to-br from-purple-50/70 to-pink-50/70 overflow-hidden">
-        {/* Background floating gradient blobs */}
-        <motion.div
-          className="absolute top-[-100px] left-[-100px] w-80 h-80 bg-pink-100 rounded-full blur-3xl opacity-30 z-0"
-          animate={{ scale: [1, 1.5, 1], x: [0, 50, 0], y: [0, 30, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-[-100px] right-[-100px] w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30 z-0"
-          animate={{ scale: [1, 1.4, 1], x: [0, -40, 0], y: [0, -30, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        />
-
-        <div className="relative z-10 max-w-6xl mx-auto">
-          <motion.h4 
-            className="text-5xl font-light text-center mb-16 text-slate-600 italic tracking-wide"
+      <section className="relative py-20 px-6 bg-white overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Hero text */}
+        <motion.div 
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.h2 
+            className="text-6xl md:text-7xl font-extralight text-slate-800 mb-6 tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Investment in Your Journey
-          </motion.h4>
+            Transform Your
+            <span className="block bg-gradient-to-r from-blue-500 via-navy-400 to-navy-600 bg-clip-text text-transparent font-light">
+              Inner World
+            </span>
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Choose the path that resonates with your journey toward healing and self-discovery
+          </motion.p>
+        </motion.div>
 
-          {/* Individual Sessions */}
-          <div className="mb-16">
-            <motion.h5 
-              className="text-2xl font-medium text-center mb-8 text-slate-700"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Individual Sessions
-            </motion.h5>
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {[
-                { duration: "30 Minutes", price: "$100", delay: 0.3 },
-                { duration: "60 Minutes", price: "$150", delay: 0.4 },
-              ].map((session, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-gradient-to-br from-white/60 to-purple-50/60 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-white/40 text-center group hover:shadow-xl transition-all duration-300"
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: session.delay }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <h6 className="text-xl font-semibold text-slate-700 mb-3 group-hover:text-purple-600 transition-colors duration-300">
-                    {session.duration}
-                  </h6>
-                  <div className="text-3xl font-light text-purple-600 mb-2">{session.price}</div>
-                  <p className="text-slate-500 text-sm">per session</p>
-                </motion.div>
-              ))}
+        {/* Pricing cards container */}
+        <motion.div 
+          className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          {/* Quick Connect - 30 min */}
+          <motion.div
+            className="group relative bg-gradient-to-br from-navy-50 to-navy-100/50 backdrop-blur-xl rounded-3xl p-8 border border-navy-200 hover:border-navy-400 transition-all duration-500"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.8 }}
+            whileHover={{ y: -10, scale: 1.02 }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-navy-500/15 to-navy-600/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            <div className="relative z-10">
+              <div className="mb-6">
+                <h3 className="text-2xl font-medium text-slate-800 mb-2">Quick Connect</h3>
+                <p className="text-slate-600 text-sm">Perfect for focused check-ins</p>
+              </div>
+              
+              <div className="mb-8">
+                <div className="flex items-baseline mb-2">
+                  <span className="text-5xl font-light text-slate-800">$100</span>
+                  <span className="ml-2 text-slate-600">/ 30 min</span>
+                </div>
+              </div>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center text-slate-700">
+                  <div className="w-2 h-2 bg-navy-500 rounded-full mr-3" />
+                  <span className="text-sm">Focused session format</span>
+                </div>
+                <div className="flex items-center text-slate-700">
+                  <div className="w-2 h-2 bg-navy-500 rounded-full mr-3" />
+                  <span className="text-sm">Immediate support</span>
+                </div>
+                <div className="flex items-center text-slate-700">
+                  <div className="w-2 h-2 bg-navy-500 rounded-full mr-3" />
+                  <span className="text-sm">Flexible scheduling</span>
+                </div>
+              </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Bundle Packages */}
-          <div>
-            <motion.h5 
-              className="text-2xl font-medium text-center mb-8 text-slate-700"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              Bundle Packages
-            </motion.h5>
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {[
-                { 
-                  duration: "8 Sessions - 30 Minutes", 
-                  price: "$650", 
-                  savings: "Save $150",
-                  delay: 0.6,
-                  gradient: "from-blue-100/60 to-purple-100/60"
-                },
-                { 
-                  duration: "8 Sessions - 60 Minutes", 
-                  price: "$900", 
-                  savings: "Save $300",
-                  delay: 0.7,
-                  gradient: "from-purple-100/60 to-pink-100/60"
-                },
-              ].map((bundle, index) => (
-                <motion.div
-                  key={index}
-                  className={`bg-gradient-to-br ${bundle.gradient} backdrop-blur-sm p-10 rounded-3xl shadow-xl border border-white/40 text-center group hover:shadow-2xl transition-all duration-300 relative overflow-hidden`}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: bundle.delay }}
-                  whileHover={{ scale: 1.03 }}
-                >
-                  <motion.div
-                    className="absolute top-4 right-4 bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: bundle.delay + 0.3 }}
-                  >
-                    {bundle.savings}
-                  </motion.div>
-                  
-                  <h6 className="text-xl font-semibold text-slate-700 mb-4 group-hover:text-purple-600 transition-colors duration-300">
-                    {bundle.duration}
-                  </h6>
-                  <div className="text-4xl font-light text-purple-600 mb-2">{bundle.price}</div>
-                  <p className="text-slate-500 text-sm mb-4">complete package</p>
-                  <div className="text-sm text-slate-600 bg-white/40 rounded-lg p-3">
-                    Commit to your growth journey with our comprehensive packages
+          {/* Deep Dive - 60 min (Featured) */}
+          <motion.div
+            className="group relative bg-gradient-to-br from-navy-100 to-navy-200/70 backdrop-blur-xl rounded-3xl p-8 border-2 border-navy-400 hover:border-navy-500 transition-all duration-500 transform scale-105"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.9 }}
+            whileHover={{ y: -10, scale: 1.07 }}
+          >
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <motion.div 
+                className="bg-gradient-to-r from-navy-700 to-navy-600 text-slate-700 px-6 py-2 rounded-full text-sm font-medium shadow-lg"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 1.2 }}
+              >
+                Most Popular
+              </motion.div>
+            </div>
+
+            <div className="absolute inset-0 bg-gradient-to-br from-navy-500/20 to-navy-600/15 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            <div className="relative z-10 pt-4">
+              <div className="mb-6">
+                <h3 className="text-2xl font-medium text-slate-800 mb-2">Deep Dive</h3>
+                <p className="text-slate-700 text-sm">Complete therapeutic experience</p>
+              </div>
+              
+              <div className="mb-8">
+                <div className="flex items-baseline mb-2">
+                  <span className="text-6xl font-light text-slate-800">$150</span>
+                  <span className="ml-2 text-slate-600">/ 60 min</span>
+                </div>
+              </div>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center text-slate-700">
+                  <div className="w-2 h-2 bg-gradient-to-r from-navy-500 to-navy-600 rounded-full mr-3" />
+                  <span className="text-sm">Full therapeutic hour</span>
+                </div>
+                <div className="flex items-center text-slate-700">
+                  <div className="w-2 h-2 bg-gradient-to-r from-navy-500 to-navy-600 rounded-full mr-3" />
+                  <span className="text-sm">Comprehensive exploration</span>
+                </div>
+                <div className="flex items-center text-slate-700">
+                  <div className="w-2 h-2 bg-gradient-to-r from-navy-500 to-navy-600 rounded-full mr-3" />
+                  <span className="text-sm">Personalized strategies</span>
+                </div>
+                <div className="flex items-center text-slate-700">
+                  <div className="w-2 h-2 bg-gradient-to-r from-navy-500 to-navy-600 rounded-full mr-3" />
+                  <span className="text-sm">Follow-up resources</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Bundle packages combined */}
+          <motion.div
+            className="group relative bg-gradient-to-br from-navy-50 to-navy-100/50 backdrop-blur-xl rounded-3xl p-8 border border-navy-200 hover:border-navy-400 transition-all duration-500"
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 1.0 }}
+            whileHover={{ y: -10, scale: 1.02 }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-navy-500/15 to-navy-600/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            
+            <div className="relative z-10">
+              <div className="mb-6">
+                <h3 className="text-2xl font-medium text-slate-800 mb-2">Commitment Packages</h3>
+                <p className="text-slate-600 text-sm">Sustained growth & transformation</p>
+              </div>
+              
+              <div className="space-y-6 mb-8">
+                <div className="p-4 bg-navy-600 rounded-2xl border border-navy-500">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-slate-700 font-medium">8 × 30min Sessions</span>
+                    <div className="bg-green-500/20 text-slate-900 px-3 py-1 rounded-full text-xs font-medium">
+                      Save $150
+                    </div>
                   </div>
-                </motion.div>
-              ))}
+                  <div className="text-3xl font-light text-slate-500">$650</div>
+                  <div className="text-navy-200 text-xs">$81.25 per session</div>
+                </div>
+
+                <div className="p-4 bg-navy-600 rounded-2xl border border-navy-500">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-slate-700 font-medium">8 × 60min Sessions</span>
+                    <div className="bg-green-500/20 text-slate-900 px-3 py-1 rounded-full text-xs font-medium">
+                      Save $300
+                    </div>
+                  </div>
+                  <div className="text-3xl font-light text-slate-500">$900</div>
+                  <div className="text-navy-200 text-xs">$112.50 per session</div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </motion.div>
+        </motion.div>
+
+        {/* Bottom CTA */}
+        <motion.div 
+          className="text-center mt-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+        >
+          <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
+            Every journey begins with a single step. Choose the option that feels right for where you are today.
+          </p>
+          <motion.div 
+            className="inline-flex items-center text-navy-600 hover:text-navy-500 transition-colors duration-300 cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+          >
+            <span className="mr-2">Not sure which is right for you?</span>
+            <span className="font-medium underline">Let's talk</span>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
 
       {/* Quote Section */}
       <section 
@@ -900,55 +1020,6 @@ export default function CentralPointPartnersWebsite() {
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}>
           "
-        </motion.div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden"></section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
-        {/* Subtle mountain backdrop */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-200/30 to-transparent"
-             style={{
-               clipPath: 'polygon(0% 100%, 30% 40%, 60% 70%, 100% 20%, 100% 100%)'
-             }}></div>
-        
-        <motion.div 
-          className="max-w-2xl mx-auto text-center relative z-10"
-          initial={{ opacity: 0, y: 30 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 1 }}>
-          <h3 className="text-4xl font-light mb-8 text-slate-600 italic">
-            Connect With Us
-          </h3>
-          <p className="mb-12 text-lg font-light text-slate-500 leading-relaxed">
-            Ready to begin your journey of transformation? We'd love to hear from you 
-            and explore how we can support your path to growth and clarity.
-          </p>
-          <div className="space-y-6 bg-white/70 backdrop-blur-sm p-10 rounded-3xl shadow-lg border border-slate-200/30">
-            <input 
-              className="w-full px-6 py-4 text-lg border border-slate-200 rounded-2xl bg-white/80 placeholder:text-slate-400 font-light focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200 transition-all" 
-              type="text" 
-              placeholder="Your name" 
-            />
-            <input 
-              className="w-full px-6 py-4 text-lg border border-slate-200 rounded-2xl bg-white/80 placeholder:text-slate-400 font-light focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200 transition-all" 
-              type="email" 
-              placeholder="Your email" 
-            />
-            <textarea 
-              className="w-full px-6 py-4 text-lg border border-slate-200 rounded-2xl bg-white/80 placeholder:text-slate-400 font-light focus:border-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-200 transition-all resize-none" 
-              placeholder="Tell us about your journey..." 
-              rows="5">
-            </textarea>
-            <motion.button 
-              className="w-full text-lg px-8 py-4 bg-slate-500/80 text-white rounded-2xl hover:bg-slate-600 transition-all duration-300 font-light tracking-wide shadow-lg backdrop-blur-sm"
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}>
-              Send Message
-            </motion.button>
-          </div>
         </motion.div>
       </section>
 

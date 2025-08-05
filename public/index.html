@@ -11,5 +11,29 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <style>
+      * {
+      scrollbar-width: thin;
+      scrollbar-color: #183f85f9 #f1f5f9; /* navy thumb, light track */
+    }
+    
+    /* For WebKit browsers (Chrome, Safari, Edge) */
+    *::-webkit-scrollbar {
+      width: 12px;
+    }
+    
+    *::-webkit-scrollbar-track {
+      background: #f1f5f9; /* light gray track */
+    }
+    
+    *::-webkit-scrollbar-thumb {
+      background: #1e293b; /* navy blue */
+      border-radius: 6px;
+    }
+    
+    *::-webkit-scrollbar-thumb:hover {
+      background: #334155; /* slightly lighter navy on hover */
+    }
+      </style>
   </body>
 </html>
