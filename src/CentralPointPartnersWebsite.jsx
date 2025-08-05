@@ -12,34 +12,34 @@ export default function CentralPointPartnersWebsite() {
 
   const testimonials = [
     {
-      quote: "The coaching sessions transformed my perspective on life. I found clarity I never knew I was missing.",
-      author: "Sarah M.",
-      role: "Marketing Director"
+      quote: "Constance is great",
+      author: "Drake B.",
+      role: "Son"
     },
     {
-      quote: "Career guidance that actually understands the human side of professional growth. Absolutely life-changing.",
-      author: "Michael R.",
-      role: "Software Engineer"
+      quote: "Constance is awesome",
+      author: "Roman B.",
+      role: "Son"
     },
     {
-      quote: "I discovered my authentic self through these deeply meaningful conversations. Highly recommend.",
-      author: "Emma L.",
+      quote: "Constance helped a lot",
+      author: "Keenan B.",
       role: "Creative Director"
     },
     {
-      quote: "The personal coaching helped me navigate a difficult transition with grace and confidence.",
-      author: "David K.",
-      role: "Entrepreneur"
+      quote: "Constance is super helpful",
+      author: "Jessie B.",
+      role: "Dog"
     },
     {
-      quote: "Finally, someone who listens without judgment and guides with wisdom. Truly grateful.",
-      author: "Lisa T.",
-      role: "Teacher"
+      quote: "Constance is very qualified",
+      author: "Muck 1",
+      role: "Dog"
     },
     {
-      quote: "The investment in myself through these sessions has paid dividends in every area of my life.",
-      author: "James P.",
-      role: "Consultant"
+      quote: "Constance is a great friend",
+      author: "Muck 2",
+      role: "Dog"
     }
   ];
 
