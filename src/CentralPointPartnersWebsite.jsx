@@ -1,11 +1,63 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Analytics } from "@vercel/analytics/react"
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 const MotionLink = motion(Link);
 
 
+
 export default function CentralPointPartnersWebsite() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  const testimonials = [
+    {
+      quote: "The coaching sessions transformed my perspective on life. I found clarity I never knew I was missing.",
+      author: "Sarah M.",
+      role: "Marketing Director"
+    },
+    {
+      quote: "Career guidance that actually understands the human side of professional growth. Absolutely life-changing.",
+      author: "Michael R.",
+      role: "Software Engineer"
+    },
+    {
+      quote: "I discovered my authentic self through these deeply meaningful conversations. Highly recommend.",
+      author: "Emma L.",
+      role: "Creative Director"
+    },
+    {
+      quote: "The personal coaching helped me navigate a difficult transition with grace and confidence.",
+      author: "David K.",
+      role: "Entrepreneur"
+    },
+    {
+      quote: "Finally, someone who listens without judgment and guides with wisdom. Truly grateful.",
+      author: "Lisa T.",
+      role: "Teacher"
+    },
+    {
+      quote: "The investment in myself through these sessions has paid dividends in every area of my life.",
+      author: "James P.",
+      role: "Consultant"
+    }
+  ];
+
+  // Auto-rotate testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
   return (
     <>
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-blue-50 to-purple-50 text-slate-700 font-serif overflow-x-hidden">
@@ -148,7 +200,7 @@ export default function CentralPointPartnersWebsite() {
       onAnimationComplete={() => {
         // This triggers after "Reclaim your Career" animation completes
       }}>
-      Reclaim your Career
+      Reclaim your Path
     </motion.span>
     
     {/* "redefine your peak" comes in from right after delay */}
@@ -327,7 +379,7 @@ export default function CentralPointPartnersWebsite() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}>
-      Work With Connie Bellisari
+      Work With Constance Bellisari
     </motion.h2>
     
     <motion.h3 
@@ -480,7 +532,7 @@ export default function CentralPointPartnersWebsite() {
           <motion.div 
             className="backdrop-blur-sm p-5 rounded-3xl shadow-lg border border-slate-200/30"
             whileInView={{ scale: [0.98, 1, 0.98] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 8, repeat: onscroll, ease: "easeInOut" }}
             whileHover={{ 
               scale: 1.02,
               boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
@@ -490,7 +542,7 @@ export default function CentralPointPartnersWebsite() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}>
-              The summit calls, not because it promises ease, but because it promises you. Every great peak scaled begins with a single step into the unknown, where courage meets possibility and dreams transform into destiny. At Central Point Partners, we don't just guide you up the mountain—we awaken the climber within you, the one who has always known that your greatest adventures lie beyond your comfort zone.
+              The summit calls, not because it promises ease, but because it promises you. Every great peak scaled begins with a single step into the unknown, where courage meets possibility and dreams transform into destiny. At Guided Peak Potential, we don't just guide you up the mountain—we awaken the climber within you, the one who has always known that your greatest adventures lie beyond your comfort zone.
               This isn't about reaching someone else's definition of success. This is about discovering the breathtaking view that can only be seen from your own personal summit. Every challenge you face becomes a stepping stone, every setback a lesson in resilience, every breakthrough a celebration of your expanding potential. The path may be steep, but the joy found in each hard-won step, each moment of clarity, each breakthrough barrier—this is where life truly begins.
               Your mountain is waiting. Not just the destination, but the magnificent journey of becoming who you were always meant to be. The air is thinner at the top, but the view is limitless, and the person you'll discover along the way will astound you. Together, we'll turn your potential into your reality, one intentional step at a time.
             </motion.p>
@@ -499,76 +551,290 @@ export default function CentralPointPartnersWebsite() {
       </section>
 
 
+      {/* Section 1: Pathways to Growth */}
+      <section id="services" className="relative py-24 px-6 bg-gradient-to-br from-purple-50/70 to-pink-50/70 overflow-hidden">
+        {/* Background floating gradient blobs */}
+        <motion.div
+          className="absolute top-[-100px] left-[-100px] w-80 h-80 bg-pink-100 rounded-full blur-3xl opacity-30 z-0"
+          animate={{ scale: [1, 1.5, 1], x: [0, 50, 0], y: [0, 30, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-[-100px] right-[-100px] w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30 z-0"
+          animate={{ scale: [1, 1.4, 1], x: [0, -40, 0], y: [0, -30, 0] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        />
 
-      {/* Services Section */}
-<section id="services" className="relative py-24 px-6 bg-gradient-to-br from-purple-50/70 to-pink-50/70 overflow-hidden">
-  {/* Background floating gradient blobs */}
-  <motion.div
-    className="absolute top-[-100px] left-[-100px] w-80 h-80 bg-pink-100 rounded-full blur-3xl opacity-30 z-0"
-    animate={{ scale: [1, 1.5, 1], x: [0, 50, 0], y: [0, 30, 0] }}
-    transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-  />
-  <motion.div
-    className="absolute bottom-[-100px] right-[-100px] w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30 z-0"
-    animate={{ scale: [1, 1.4, 1], x: [0, -40, 0], y: [0, -30, 0] }}
-    transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-  />
+        <h3 className="relative z-10 text-5xl font-light text-center mb-20 text-slate-600 italic tracking-wide">
+          Pathways to Growth
+        </h3>
 
-  <h3 className="relative z-10 text-5xl font-light text-center mb-20 text-slate-600 italic tracking-wide">
-    Pathways to Growth
-  </h3>
+        {/* Services Grid */}
+        <div className="relative z-10 grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
+          {[
+            {
+              title: "Personal Coaching",
+              desc: "One-on-one sessions that honor your unique journey, offering guidance as you navigate toward your authentic self.",
+              color: "from-blue-100/50 to-purple-100/50",
+              icon: "🌱",
+            },
+            {
+              title: "Career Guidance",
+              desc: "Collaborative experiences where shared wisdom creates a tapestry of growth, connection, and mutual support.",
+              color: "from-purple-100/50 to-pink-100/50",
+              icon: "🎯",
+            },
+          ].map((service, index) => (
+            <motion.div
+              key={index}
+              className={`group relative bg-gradient-to-br ${service.color} backdrop-blur-sm p-12 rounded-3xl shadow-xl border border-white/30 overflow-hidden`}
+              variants={{
+                hidden: { opacity: 0, y: 60 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, delay: index * 0.3, ease: "easeOut" }}
+              whileHover={{ scale: 1.03 }}
+            >
+              <motion.div
+                className="absolute -top-10 -right-10 text-8xl opacity-10 group-hover:opacity-20 transition-all duration-500"
+                animate={{ rotate: [0, 15, -15, 0] }}
+                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              >
+                {service.icon}
+              </motion.div>
 
-  <div className="relative z-10 grid md:grid-cols-3 gap-12 max-w-7xl mx-auto">
-  {[
-  {
-    title: "Personal Coaching",
-    desc: "One-on-one sessions that honor your unique journey, offering gentle guidance as you navigate toward your authentic self.",
-    color: "from-blue-100/50 to-purple-100/50",
-    icon: "🌱",
-  },
-  {
-    title: "Career Guidance",
-    desc: "Collaborative experiences where shared wisdom creates a tapestry of growth, connection, and mutual support.",
-    color: "from-purple-100/50 to-pink-100/50",
-    icon: "🎯",
-  },
-  {
-    title: "Team Building",
-    desc: "Cultivate presence and awareness through practices rooted in simplicity, breath, and the natural rhythm of being.",
-    color: "from-pink-100/50 to-orange-100/50",
-    icon: "🤝",
-  },
-].map((service, index) => (
-  <motion.div
-    key={index}
-    className={`group relative bg-gradient-to-br ${service.color} backdrop-blur-sm p-10 rounded-3xl shadow-xl border border-white/30 overflow-hidden`}
-    variants={{
-      hidden: { opacity: 0, y: 60 },
-      visible: { opacity: 1, y: 0 },
-    }}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, amount: 0.2 }}
-    transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
-    whileHover={{ scale: 1.03 }}
-  >
-    <motion.div
-      className="absolute -top-10 -right-10 text-7xl opacity-10 group-hover:opacity-20 transition-all duration-500"
-      animate={{ rotate: [0, 15, -15, 0] }}
-      transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-    >
-      {service.icon}
-    </motion.div>
+              <h4 className="text-3xl font-semibold text-slate-700 mb-6 group-hover:text-purple-600 transition-colors duration-300">
+                {service.title}
+              </h4>
+              <p className="text-slate-600 font-light leading-relaxed text-lg">{service.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-    <h4 className="text-2xl font-semibold text-slate-700 mb-4 group-hover:text-purple-600 transition-colors duration-300">
-      {service.title}
-    </h4>
-    <p className="text-slate-600 font-light leading-relaxed">{service.desc}</p>
-  </motion.div>
-))}
+      {/* Section 2: Testimonials */}
+      <section 
+  className="relative py-24 px-6 bg-cover bg-center overflow-hidden"
+  style={{ backgroundImage: "url('/bears.png')" }}
+>
+  {/* Dark overlay for text readability */}
+  <div className="absolute inset-0 backdrop-blur-[2px] bg-black/20 z-10"></div>
+        
+        {/* Animated background elements */}
+        <motion.div
+          className="absolute top-20 left-10 w-64 h-64  rounded-full blur-3xl"
+          animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0.2, 0.1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-10 w-80 h-80 rounded-full blur-3xl"
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.05, 0.15] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
 
-  </div>
-</section>
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <motion.h3 
+            className="text-5xl font-light text-center mb-20 text-white italic tracking-wide"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            Voices of Transformation
+          </motion.h3>
+
+           {/* Testimonial Carousel */}
+           <div className="relative">
+            {/* Navigation Buttons
+            <button
+              onClick={prevTestimonial}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all duration-300 text-2xl font-bold"
+            >
+              ‹
+            </button>
+            <button
+              onClick={nextTestimonial}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all duration-300 text-2xl font-bold"
+            >
+              ›
+            </button>
+ */}
+            {/* Testimonial Cards */}
+            <div className="flex items-center justify-center min-h-[300px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentTestimonial}
+                  initial={{ opacity: 0, x: 100, scale: 0.8 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: -100, scale: 0.8 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="max-w-4xl mx-auto px-8"
+                >
+                  <div className="bg-black/40 backdrop-blur-xl rounded-3xl border border-white/20 p-12 text-center shadow-2xl">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2, duration: 0.6 }}
+                    >
+                      <blockquote className="text-2xl font-light text-white mb-8 leading-relaxed italic">
+                        "{testimonials[currentTestimonial].quote}"
+                      </blockquote>
+                      <div className="border-t border-white/20 pt-6">
+                        <p className="text-white font-semibold text-lg mb-1">
+                          {testimonials[currentTestimonial].author}
+                        </p>
+                        <p className="text-white/70 text-sm">
+                          {testimonials[currentTestimonial].role}
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center mt-12 space-x-3">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentTestimonial(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentTestimonial
+                      ? 'bg-white scale-125'
+                      : 'bg-white/40 hover:bg-white/60'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Pricing */}
+      <section className="relative py-24 px-6 bg-gradient-to-br from-purple-50/70 to-pink-50/70 overflow-hidden">
+        {/* Background floating gradient blobs */}
+        <motion.div
+          className="absolute top-[-100px] left-[-100px] w-80 h-80 bg-pink-100 rounded-full blur-3xl opacity-30 z-0"
+          animate={{ scale: [1, 1.5, 1], x: [0, 50, 0], y: [0, 30, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-[-100px] right-[-100px] w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30 z-0"
+          animate={{ scale: [1, 1.4, 1], x: [0, -40, 0], y: [0, -30, 0] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <motion.h4 
+            className="text-5xl font-light text-center mb-16 text-slate-600 italic tracking-wide"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            Investment in Your Journey
+          </motion.h4>
+
+          {/* Individual Sessions */}
+          <div className="mb-16">
+            <motion.h5 
+              className="text-2xl font-medium text-center mb-8 text-slate-700"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Individual Sessions
+            </motion.h5>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {[
+                { duration: "30 Minutes", price: "$100", delay: 0.3 },
+                { duration: "60 Minutes", price: "$150", delay: 0.4 },
+              ].map((session, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-gradient-to-br from-white/60 to-purple-50/60 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-white/40 text-center group hover:shadow-xl transition-all duration-300"
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: session.delay }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <h6 className="text-xl font-semibold text-slate-700 mb-3 group-hover:text-purple-600 transition-colors duration-300">
+                    {session.duration}
+                  </h6>
+                  <div className="text-3xl font-light text-purple-600 mb-2">{session.price}</div>
+                  <p className="text-slate-500 text-sm">per session</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bundle Packages */}
+          <div>
+            <motion.h5 
+              className="text-2xl font-medium text-center mb-8 text-slate-700"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              Bundle Packages
+            </motion.h5>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {[
+                { 
+                  duration: "8 Sessions - 30 Minutes", 
+                  price: "$650", 
+                  savings: "Save $150",
+                  delay: 0.6,
+                  gradient: "from-blue-100/60 to-purple-100/60"
+                },
+                { 
+                  duration: "8 Sessions - 60 Minutes", 
+                  price: "$900", 
+                  savings: "Save $300",
+                  delay: 0.7,
+                  gradient: "from-purple-100/60 to-pink-100/60"
+                },
+              ].map((bundle, index) => (
+                <motion.div
+                  key={index}
+                  className={`bg-gradient-to-br ${bundle.gradient} backdrop-blur-sm p-10 rounded-3xl shadow-xl border border-white/40 text-center group hover:shadow-2xl transition-all duration-300 relative overflow-hidden`}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: bundle.delay }}
+                  whileHover={{ scale: 1.03 }}
+                >
+                  <motion.div
+                    className="absolute top-4 right-4 bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: bundle.delay + 0.3 }}
+                  >
+                    {bundle.savings}
+                  </motion.div>
+                  
+                  <h6 className="text-xl font-semibold text-slate-700 mb-4 group-hover:text-purple-600 transition-colors duration-300">
+                    {bundle.duration}
+                  </h6>
+                  <div className="text-4xl font-light text-purple-600 mb-2">{bundle.price}</div>
+                  <p className="text-slate-500 text-sm mb-4">complete package</p>
+                  <div className="text-sm text-slate-600 bg-white/40 rounded-lg p-3">
+                    Commit to your growth journey with our comprehensive packages
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Quote Section */}
       <section 
