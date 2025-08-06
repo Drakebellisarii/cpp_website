@@ -1212,7 +1212,7 @@ export default function CentralPointPartnersWebsite() {
 
       <footer className="text-center py-8 text-slate-400 bg-white/60 backdrop-blur-sm border-t border-slate-200/30">
         <div className="font-light">
-          © {new Date().getFullYear()} Central Point Partners. Nurturing transformation with gentle wisdom.
+          © {new Date().getFullYear()} Guided Peak Potential. Nurturing transformation with gentle wisdom.
         </div>
       </footer>
     </div>
