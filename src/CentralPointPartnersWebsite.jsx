@@ -55,6 +55,66 @@ export default function CentralPointPartnersWebsite() {
   const prevTestimonial = () => {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
+
+  const services = [
+    {
+      title: "Personal Coaching",
+      desc: "One-on-one sessions that honor your unique journey, offering personalized guidance as you navigate toward your authentic self and unlock your fullest potential.",
+      features: ["Individual sessions", "Personalized approach", "Goal-oriented", "Flexible scheduling"],
+      icon: (
+        <svg 
+          viewBox="-6 2 28 28" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="1.5" 
+          className="w-full h-full"
+        >    
+        <path d="M4 4.5V19a1 1 0 0 0 1 1h15M7 14l4-4 4 4 5-5m0 0h-3.207M20 9v3.207"/>
+        </svg>
+
+      )
+    },
+    {
+      title: "Career Guidance", 
+      desc: "Strategic career development that aligns your professional path with your values, helping you create meaningful work that fulfills both your ambitions and purpose.",
+      features: ["Career strategy", "Professional growth", "Industry insights", "Network building"],
+      icon: (
+        <svg 
+          viewBox="-8 2 28 28" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="1.5" 
+          className="w-full h-full"
+        >
+            <path d="M12.4472 2.10557c-.2815-.14076-.6129-.14076-.8944 0L5.90482 4.92956l.37762.11119c.01131.00333.02257.00687.03376.0106L12 6.94594l5.6808-1.89361.3927-.13363-5.6263-2.81313ZM5 10V6.74803l.70053.20628L7 7.38747V10c0 .5523-.44772 1-1 1s-1-.4477-1-1Zm3-1c0-.42413.06601-.83285.18832-1.21643l3.49538 1.16514c.2053.06842.4272.06842.6325 0l3.4955-1.16514C15.934 8.16715 16 8.57587 16 9c0 2.2091-1.7909 4-4 4-2.20914 0-4-1.7909-4-4Z"/>
+            <path d="M14.2996 13.2767c.2332-.2289.5636-.3294.8847-.2692C17.379 13.4191 19 15.4884 19 17.6488v2.1525c0 1.2289-1.0315 2.1428-2.2 2.1428H7.2c-1.16849 0-2.2-.9139-2.2-2.1428v-2.1525c0-2.1409 1.59079-4.1893 3.75163-4.6288.32214-.0655.65589.0315.89274.2595l2.34883 2.2606 2.3064-2.2634Z"/>
+        </svg>
+      )
+    }
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 60, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
   return (
     <>
     <div className="min-h-screen bg-gradient-to-b from-slate-50 via-blue-50 to-purple-50 text-slate-700 font-serif overflow-x-hidden">
@@ -328,9 +388,9 @@ export default function CentralPointPartnersWebsite() {
       </section>
 
       {/* New Change Your Life Now Animation + Buckets Section */}
-<section className="py-20 px-6 bg-gradient-to-b from-slate-400/60 via-slate-600/80 to-slate-900">
+<section className="py-20 px-6 bg-gradient-to-b from-slate-400/60 via-slate-700/80 to-slate-700">
 <motion.h2
-    className="text-5xl text-center font-light text-white italic mb-12"
+    className="text-6xl text-center font-light text-white italic mb-12"
     animate={{ y: [0, -4, 0], opacity: [0.8, 1, 0.8] }}
     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
     Change Your Life Now
@@ -587,70 +647,130 @@ export default function CentralPointPartnersWebsite() {
         </motion.div>
       </section>
 
+  {/*Pathways to growth section*/}
+    <section id="services" className="relative py-24 px-6 bg-white overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Enhanced header */}
+        <motion.div 
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.h2 
+            className="text-6xl md:text-7xl font-extralight text-slate-800 mb-4 tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Pathways to 
+            <span className="block bg-gradient-to-r from-blue-300 via-blue-400 to-blue-500 bg-clip-text text-transparent font-light">
+              Growth
+            </span>
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            Discover transformative approaches designed to meet you exactly where you are on your journey
+          </motion.p>
+        </motion.div>
 
-      {/* Section 1: Pathways to Growth */}
-      <section id="services" className="relative py-24 px-6 bg-white overflow-hidden">
-        {/* Background floating gradient blobs */}
-        <motion.div
-          className="absolute top-[-100px] left-[-100px] w-80 h-80 bg-pink-100 rounded-full blur-3xl opacity-30 z-0"
-          animate={{ scale: [1, 1.5, 1], x: [0, 50, 0], y: [0, 30, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-[-100px] right-[-100px] w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30 z-0"
-          animate={{ scale: [1, 1.4, 1], x: [0, -40, 0], y: [0, -30, 0] }}
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        />
-
-        <h3 className="relative z-10 text-5xl font-light text-center mb-20 text-slate-600 italic tracking-wide">
-          Pathways to Growth
-        </h3>
-
-        {/* Services Grid */}
-        <div className="relative z-10 grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
-          {[
-            {
-              title: "Personal Coaching",
-              desc: "One-on-one sessions that honor your unique journey, offering guidance as you navigate toward your authentic self.",
-              color: "bg-gradient-to-br from-slate-600 to-slate-700",
-              icon: "🌱",
-            },
-            {
-              title: "Career Guidance",
-              desc: "Collaborative experiences where shared wisdom creates a tapestry of growth, connection, and mutual support.",
-              color: "bg-gradient-to-br from-slate-600 to-slate-700",
-              icon: "🎯",
-            },
-          ].map((service, index) => (
+        {/* Enhanced Services Grid */}
+        <motion.div 
+          className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {services.map((service, index) => (
             <motion.div
               key={index}
-              className={`group relative bg-gradient-to-br ${service.color} backdrop-blur-sm p-12 rounded-3xl shadow-xl border border-white/30 overflow-hidden`}
-              variants={{
-                hidden: { opacity: 0, y: 60 },
-                visible: { opacity: 1, y: 0 },
+              className="group relative"
+              variants={cardVariants}
+              whileHover={{ 
+                y: -20,
+                scale: 1.05,
+                transition: { duration: 0.4, ease: "easeOut" }
               }}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.8, delay: index * 0.3, ease: "easeOut" }}
-              whileHover={{ scale: 1.03 }}
             >
-              <motion.div
-                className="absolute -top-10 -right-10 text-8xl opacity-10 group-hover:opacity-20 transition-all duration-500"
-                animate={{ rotate: [0, 15, -15, 0] }}
-                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              >
-                {service.icon}
-              </motion.div>
+              {/* Card container */}
+              <div className="relative bg-white/60 backdrop-blur-sm p-10 rounded-3xl shadow-lg border border-blue-200/50 overflow-hidden group-hover:bg-blue-50/80 group-hover:shadow-2xl group-hover:border-blue-300/70 transition-all duration-500">
+                
+                {/* Subtle hover overlay effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-100/30 to-blue-200/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+                
+                {/* Enhanced border glow on hover */}
+                <div className="absolute inset-0 rounded-3xl border-2 border-blue-300/0 group-hover:border-blue-400/50 transition-all duration-500" />
 
-              <h4 className="text-3xl font-semibold text-white mb-6 group-hover:text-purple-600 transition-colors duration-300">
-                {service.title}
-              </h4>
-              <p className="text-white font-light leading-relaxed text-lg">{service.desc}</p>
+                {/* Floating icon */}
+                <motion.div
+                  className="absolute -top-6 -right-6 text-7xl opacity-10 group-hover:opacity-30 transition-all duration-500"
+                  whileHover={{
+                    scale: 1.2,
+                    rotate: 15,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  {service.icon}
+                </motion.div>
+
+                {/* Content */}
+                <div className="relative z-10">
+                  <motion.h3 
+                    className="text-4xl font-semibold text-slate-700 mb-6 group-hover:text-blue-700 group-hover:scale-105 transition-all duration-300"
+                    whileHover={{ x: 8 }}
+                  >
+                    {service.title}
+                  </motion.h3>
+                  
+                  <p className="text-slate-600 font-light leading-relaxed text-lg mb-8 group-hover:text-slate-700 transition-colors duration-300">
+                    {service.desc}
+                  </p>
+
+                  {/* Feature list */}
+                  <div className="grid grid-cols-2 gap-3 mb-8">
+                    {service.features.map((feature, idx) => (
+                      <motion.div
+                        key={idx}
+                        className="flex items-center text-slate-500 group-hover:text-blue-600 transition-colors duration-300"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.6 + (idx * 0.1) }}
+                        whileHover={{ x: 5 }}
+                      >
+                        <motion.div 
+                          className="w-2 h-2 bg-blue-300 rounded-full mr-3 group-hover:bg-blue-500 group-hover:scale-150 transition-all duration-300"
+                          whileHover={{ 
+                            scale: 2,
+                            boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)"
+                          }}
+                        />
+                        <span className="text-sm font-medium">{feature}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+               
+              </div>
+
+              {/* Enhanced external glow effect */}
+              <div className="absolute inset-0 bg-blue-200/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 -z-10 scale-110" />
             </motion.div>
           ))}
-        </div>
-      </section>
+        </motion.div>
+
+      </div>
+    </section>
+
 
       {/* Section 2: Testimonials */}
       <section 
@@ -794,18 +914,25 @@ export default function CentralPointPartnersWebsite() {
         >
           {/* Quick Connect - 30 min */}
           <motion.div
-            className="group relative bg-gradient-to-br from-navy-50 to-navy-100/50 backdrop-blur-xl rounded-3xl p-8 border border-navy-200 hover:border-navy-400 transition-all duration-500"
+            className="group relative bg-gradient-to-br from-slate-50 to-slate-100/50 backdrop-blur-xl rounded-3xl p-8 border border-slate-200 transition-all duration-300 ease-out"
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.8 }}
-            whileHover={{ y: -10, scale: 1.02 }}
+            whileHover={{ 
+              y: -8,
+              transition: { duration: 0.3, ease: "easeOut" }
+            }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-navy-500/15 to-navy-600/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            {/* Hover overlay with smooth transition */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-600/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out" />
+            
+            {/* Border glow effect */}
+            <div className="absolute inset-0 rounded-3xl border border-blue-400/0 group-hover:border-blue-400/30 transition-all duration-300" />
             
             <div className="relative z-10">
               <div className="mb-6">
-                <h3 className="text-2xl font-medium text-slate-800 mb-2">Quick Connect</h3>
+                <h3 className="text-2xl font-medium text-slate-800 mb-2 group-hover:text-slate-900 transition-colors duration-300">Quick Connect</h3>
                 <p className="text-slate-600 text-sm">Perfect for focused check-ins</p>
               </div>
               
@@ -818,15 +945,27 @@ export default function CentralPointPartnersWebsite() {
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-center text-slate-700">
-                  <div className="w-2 h-2 bg-navy-500 rounded-full mr-3" />
+                  <motion.div 
+                    className="w-2 h-2 bg-blue-500 rounded-full mr-3"
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.2 }}
+                  />
                   <span className="text-sm">Focused session format</span>
                 </div>
                 <div className="flex items-center text-slate-700">
-                  <div className="w-2 h-2 bg-navy-500 rounded-full mr-3" />
+                  <motion.div 
+                    className="w-2 h-2 bg-blue-500 rounded-full mr-3"
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.2 }}
+                  />
                   <span className="text-sm">Immediate support</span>
                 </div>
                 <div className="flex items-center text-slate-700">
-                  <div className="w-2 h-2 bg-navy-500 rounded-full mr-3" />
+                  <motion.div 
+                    className="w-2 h-2 bg-blue-500 rounded-full mr-3"
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.2 }}
+                  />
                   <span className="text-sm">Flexible scheduling</span>
                 </div>
               </div>
@@ -835,55 +974,86 @@ export default function CentralPointPartnersWebsite() {
 
           {/* Deep Dive - 60 min (Featured) */}
           <motion.div
-            className="group relative bg-gradient-to-br from-navy-100 to-navy-200/70 backdrop-blur-xl rounded-3xl p-8 border-2 border-navy-400 hover:border-navy-500 transition-all duration-500 transform scale-105"
+            className="group relative bg-gradient-to-br from-blue-50 to-indigo-100/70 backdrop-blur-xl rounded-3xl p-8 border-2 border-blue-300 transition-all duration-300 ease-out transform scale-105"
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.9 }}
-            whileHover={{ y: -10, scale: 1.07 }}
+            whileHover={{ 
+              y: -8,
+              scale: 1.05, // Keep the same scale to prevent tag movement
+              transition: { duration: 0.3, ease: "easeOut" }
+            }}
           >
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <motion.div 
-                className="bg-gradient-to-r from-navy-700 to-navy-600 text-slate-700 px-6 py-2 rounded-full text-sm font-medium shadow-lg"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 1.2 }}
-              >
+            {/* Most Popular tag with fixed positioning */}
+            <motion.div 
+              className="absolute -top-4 left-1/3 transform -translate-x-1/2 z-20"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 1.2 }}
+            >
+              <div className="bg-gradient-to-r bg-center from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg ">
                 Most Popular
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
 
-            <div className="absolute inset-0 bg-gradient-to-br from-navy-500/20 to-navy-600/15 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            {/* Enhanced hover overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/15 to-indigo-600/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out" />
+            
+            {/* Animated border glow */}
+            <div className="absolute inset-0 rounded-3xl border-2 border-blue-400/0 group-hover:border-blue-400/50 transition-all duration-300" />
             
             <div className="relative z-10 pt-4">
               <div className="mb-6">
-                <h3 className="text-2xl font-medium text-slate-800 mb-2">Deep Dive</h3>
+                <h3 className="text-2xl font-medium text-slate-800 mb-2 group-hover:text-slate-900 transition-colors duration-300">Deep Dive</h3>
                 <p className="text-slate-700 text-sm">Complete therapeutic experience</p>
               </div>
               
               <div className="mb-8">
                 <div className="flex items-baseline mb-2">
-                  <span className="text-6xl font-light text-slate-800">$150</span>
+                  <motion.span 
+                    className="text-6xl font-light text-slate-800"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    $150
+                  </motion.span>
                   <span className="ml-2 text-slate-600">/ 60 min</span>
                 </div>
               </div>
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-center text-slate-700">
-                  <div className="w-2 h-2 bg-gradient-to-r from-navy-500 to-navy-600 rounded-full mr-3" />
+                  <motion.div 
+                    className="w-2 h-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mr-3"
+                    whileHover={{ scale: 1.3 }}
+                    transition={{ duration: 0.2 }}
+                  />
                   <span className="text-sm">Full therapeutic hour</span>
                 </div>
                 <div className="flex items-center text-slate-700">
-                  <div className="w-2 h-2 bg-gradient-to-r from-navy-500 to-navy-600 rounded-full mr-3" />
+                  <motion.div 
+                    className="w-2 h-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mr-3"
+                    whileHover={{ scale: 1.3 }}
+                    transition={{ duration: 0.2 }}
+                  />
                   <span className="text-sm">Comprehensive exploration</span>
                 </div>
                 <div className="flex items-center text-slate-700">
-                  <div className="w-2 h-2 bg-gradient-to-r from-navy-500 to-navy-600 rounded-full mr-3" />
+                  <motion.div 
+                    className="w-2 h-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mr-3"
+                    whileHover={{ scale: 1.3 }}
+                    transition={{ duration: 0.2 }}
+                  />
                   <span className="text-sm">Personalized strategies</span>
                 </div>
                 <div className="flex items-center text-slate-700">
-                  <div className="w-2 h-2 bg-gradient-to-r from-navy-500 to-navy-600 rounded-full mr-3" />
+                  <motion.div 
+                    className="w-2 h-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mr-3"
+                    whileHover={{ scale: 1.3 }}
+                    transition={{ duration: 0.2 }}
+                  />
                   <span className="text-sm">Follow-up resources</span>
                 </div>
               </div>
@@ -892,47 +1062,62 @@ export default function CentralPointPartnersWebsite() {
 
           {/* Bundle packages combined */}
           <motion.div
-            className="group relative bg-gradient-to-br from-navy-50 to-navy-100/50 backdrop-blur-xl rounded-3xl p-8 border border-navy-200 hover:border-navy-400 transition-all duration-500"
+            className="group relative bg-gradient-to-br from-slate-50 to-slate-100/50 backdrop-blur-xl rounded-3xl p-8 border border-slate-200 transition-all duration-300 ease-out"
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 1.0 }}
-            whileHover={{ y: -10, scale: 1.02 }}
+            whileHover={{ 
+              y: -8,
+              transition: { duration: 0.3, ease: "easeOut" }
+            }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-navy-500/15 to-navy-600/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            {/* Hover overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-600/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out" />
+            
+            {/* Border glow effect */}
+            <div className="absolute inset-0 rounded-3xl border border-blue-400/0 group-hover:border-blue-400/30 transition-all duration-300" />
             
             <div className="relative z-10">
               <div className="mb-6">
-                <h3 className="text-2xl font-medium text-slate-800 mb-2">Commitment Packages</h3>
+                <h3 className="text-2xl font-medium text-slate-800 mb-2 group-hover:text-slate-900 transition-colors duration-300">Commitment Packages</h3>
                 <p className="text-slate-600 text-sm">Sustained growth & transformation</p>
               </div>
               
               <div className="space-y-6 mb-8">
-                <div className="p-4 bg-navy-600 rounded-2xl border border-navy-500">
+                <motion.div 
+                  className="p-4 bg-gradient-to-r from-slate-100 to-slate-200 rounded-2xl border border-slate-300 group-hover:from-blue-50 group-hover:to-indigo-50 group-hover:border-blue-200 transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-slate-700 font-medium">8 × 30min Sessions</span>
-                    <div className="bg-green-500/20 text-slate-900 px-3 py-1 rounded-full text-xs font-medium">
+                    <div className="bg-green-500/20 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
                       Save $150
                     </div>
                   </div>
-                  <div className="text-3xl font-light text-slate-500">$650</div>
-                  <div className="text-navy-200 text-xs">$81.25 per session</div>
-                </div>
+                  <div className="text-3xl font-light text-slate-800">$650</div>
+                  <div className="text-slate-600 text-xs">$81.25 per session</div>
+                </motion.div>
 
-                <div className="p-4 bg-navy-600 rounded-2xl border border-navy-500">
+                <motion.div 
+                  className="p-4 bg-gradient-to-r from-slate-100 to-slate-200 rounded-2xl border border-slate-300 group-hover:from-blue-50 group-hover:to-indigo-50 group-hover:border-blue-200 transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-slate-700 font-medium">8 × 60min Sessions</span>
-                    <div className="bg-green-500/20 text-slate-900 px-3 py-1 rounded-full text-xs font-medium">
+                    <div className="bg-green-500/20 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
                       Save $300
                     </div>
                   </div>
-                  <div className="text-3xl font-light text-slate-500">$900</div>
-                  <div className="text-navy-200 text-xs">$112.50 per session</div>
-                </div>
+                  <div className="text-3xl font-light text-slate-800">$900</div>
+                  <div className="text-slate-600 text-xs">$112.50 per session</div>
+                  </motion.div>
               </div>
             </div>
+             </motion.div>
           </motion.div>
-        </motion.div>
 
         {/* Bottom CTA */}
         <motion.div 
@@ -950,7 +1135,9 @@ export default function CentralPointPartnersWebsite() {
             whileHover={{ scale: 1.05 }}
           >
             <span className="mr-2">Not sure which is right for you?</span>
-            <span className="font-medium underline">Let's talk</span>
+            <motion.a href="/contact">
+              <span className="font-medium underline">Let's talk</span>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>
