@@ -9,34 +9,34 @@ export default function CentralPointPartnersWebsite() {
 
   const testimonials = [
     {
-      quote: "Constance is great",
-      author: "Drake B.",
-      role: "Son"
+      quote: "Trying to manage a team and heal from a broken marriage felt impossible. GPP gave me space to breathe, tools to lead, and the strength to thrive. I'm proud if who I'm becoming.",
+      author: "TM",
+      role: "Buisness Owner"
     },
     {
-      quote: "Constance is awesome",
-      author: "Roman B.",
-      role: "Son"
+      quote: "After my divorce, I didn't recognize my life or myself. Guided Peak Potential helped me reconnect who I really am - not just as a business owner, but as a woman. I'm stronger, clearer, and finally leading with confidence.",
+      author: "JC",
+      role: "Co-owner"
     },
     {
-      quote: "Constance helped a lot",
+      quote: "Her coaching is part strategy, part soul work. I now have boundaries in my buisness, peace in my personal life, and a renewed sense of purpose. I only wish I'd started sooner.",
       author: "Keenan B.",
       role: "Creative Director"
     },
     {
-      quote: "Constance is super helpful",
-      author: "Jessie B.",
-      role: "Dog"
+      quote: "As a founder, I was overwhelmed with decision fatigue and lost sight of my why. Constance brought structure to the chaos and helped me align my buisness goals with my personal values. Game changer",
+      author: "Chat gpt-4.5",
+      role: "Large Language Model"
     },
     {
-      quote: "Constance is very qualified",
-      author: "Muck 1",
-      role: "Dog"
+      quote: "Didn't think coaching could shift my mindset the way therapy never did. But after just a feew sessions, I saw real change. Constance helped me turn my breakdown into a breakthough",
+      author: "Chat gpt-4.5",
+      role: "Large Language Model"
     },
     {
-      quote: "Constance is a great friend",
-      author: "Muck 2",
-      role: "Dog"
+      quote: "Working with Constance helped me reconnect with the version of myself I had buried under years of stress and obligation. She didn;t just offer guidence - she gave me clarity, tools, and confidence to rewrite my story. I'm finally livin",
+      author: "Chat gpt-4.5",
+      role: "Large Language Model"
     }
   ];
 
@@ -75,7 +75,7 @@ export default function CentralPointPartnersWebsite() {
       )
     },
     {
-      title: "Career Guidance", 
+      title: "Buisness Strategy Coaching", 
       desc: "Strategic career development that aligns your professional path with your values, helping you create meaningful work that fulfills both your ambitions and purpose.",
       features: ["Career strategy", "Professional growth", "Industry insights", "Network building"],
       icon: (
@@ -162,14 +162,18 @@ export default function CentralPointPartnersWebsite() {
         </motion.div>
       </div>
 
-      <header className="relative p-6 flex justify-between items-center bg-white/80 backdrop-blur-sm shadow-lg top-0 z-50 border-b border-slate-200/50">
-        <motion.h1 
-          className="text-3xl font-light tracking-wide text-slate-600 italic"
+      <header className="relative py-2 px-6 flex justify-between items-center bg-white/80 backdrop-blur-sm shadow-lg top-0 z-50 border-b border-slate-200/50">
+        <motion.div 
+          className="flex items-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}>
-          Guided Peak Potential
-        </motion.h1>
+          <img 
+            src="/GPP-logo.svg" 
+            alt="Guided Peak Potential" 
+            className="h-16 w-auto object-contain"
+          />
+        </motion.div>
         <nav className="space-x-8 flex items-center">
         {['About', 'Services', 'Contact'].map((item, i) => {
   const isAbout = item === 'About';
@@ -255,7 +259,7 @@ export default function CentralPointPartnersWebsite() {
   className="mb-8"
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
-  transition={{ duration: 0.5 }}>
+  transition={{ duration: 0.5, delay: 0.3 }}>
   
   <motion.h2 className="text-5xl md:text-7xl font-light text-slate-200 mb-4 leading-tight">
     {/* "Reclaim your Career" comes in from left */}
@@ -388,39 +392,92 @@ export default function CentralPointPartnersWebsite() {
       </section>
 
       {/* New Change Your Life Now Animation + Buckets Section */}
-<section className="py-20 px-6 bg-gradient-to-b from-slate-400/60 via-slate-700/80 to-slate-700">
+<section className="py-16 px-6 bg-gradient-to-b from-slate-400/60 via-slate-700/80 to-slate-700">
 <motion.h2
-    className="text-6xl text-center font-light text-white italic mb-12"
+    className="text-5xl text-center font-light text-white italic mb-12"
     animate={{ y: [0, -4, 0], opacity: [0.8, 1, 0.8] }}
     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
     Change Your Life Now
   </motion.h2>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-11 max-w-7xl mx-auto">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
     {[
       {
         title: "Reach for the Peak",
-        subtitle: "Dream Big",
-        text: "Visualize your highest self and pursue that vision fearlessly.",
-        img: "/Dream.png"
+        subtitle: "Dream Big & Bold",
+        description: "Visualize your highest self and pursue that vision fearlessly. Break free from limiting beliefs and step into the extraordinary life you were meant to live.",
+        features: [
+          "Clarify your deepest desires and aspirations",
+          "Create a compelling vision for your future",
+          "Develop unshakeable confidence in your abilities",
+          "Design actionable steps toward your dreams"
+        ],
+        accent: "from-amber-400 via-yellow-300 to-orange-400",
+        icon: (
+          <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24">
+          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m13.006 15.265l2.117-3.14m0 0l.251-.37a1.637 1.637 0 0 1 2.861.234l2.596 5.541c.536 1.142-.27 2.47-1.497 2.47H4.666c-1.224 0-2.03-1.32-1.501-2.462l5.808-12.56a1.641 1.641 0 0 1 3.015.03z"/>
+          </svg>
+        )
       },
       {
         title: "Overcome Obstacles",
-        subtitle: "Break Through",
-        text: "Face challenges with resilience and turn adversity into strength.",
-        img: "/Challenge.png"
+        subtitle: "Break Through Barriers",
+        description: "Face challenges with resilience and turn adversity into strength. Transform your struggles into stepping stones toward success.",
+        features: [
+          "Identify and dismantle limiting beliefs",
+          "Develop mental toughness and resilience",
+          "Turn setbacks into opportunities for growth",
+          "Build emotional strength and stability"
+        ],
+        accent: "from-purple-400 via-pink-300 to-red-400",
+        icon: (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+            <path d="M12 2v20"/>
+          </svg>
+        )
       },
       {
-        title: "Redifine Yourself",
-        subtitle: "Transform",
-        text: "Embrace growth, change your mindset, and shift your path.",
-        img: "/Transform.png"
+        title: "Redefine Yourself",
+        subtitle: "Transform & Evolve",
+        description: "Embrace growth, change your mindset, and shift your path. Become the person you've always wanted to be.",
+        features: [
+          "Discover your authentic self and values",
+          "Transform negative thought patterns",
+          "Embrace change and personal evolution",
+          "Align your actions with your true purpose"
+        ],
+        accent: "from-blue-400 via-cyan-300 to-teal-400",
+        icon: (
+          <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 48 48">
+          <g fill="none">
+              <path d="M31 20v7L10 39l-6-4V13l6-4l14 8l-6.5 3.5L10 16v16l21-12Z"/>
+              <path fill="currentColor" d="m31 27l.992 1.736A2 2 0 0 0 33 27h-2Zm0-7h2v-3.446l-2.992 1.71L31 20ZM10 32H8a2 2 0 0 0 2.992 1.736L10 32Zm0-16l1.029-1.715A2 2 0 0 0 8 16h2Zm7.5 4.5l-1.029 1.715a2 2 0 0 0 1.977.046L17.5 20.5ZM24 17l.948 1.76a2 2 0 0 0 .044-3.497L24 17ZM10 9l.992-1.736a2 2 0 0 0-2.101.072L10 9Zm-6 4l-1.11-1.664A2 2 0 0 0 2 13h2Zm0 22H2a2 2 0 0 0 .89 1.664L4 35Zm6 4l-1.11 1.664a2 2 0 0 0 2.102.072L10 39Zm23-12v-7h-4v7h4Zm-2.992-8.736l-21 12l1.984 3.473l21-12l-1.984-3.473ZM12 32V16H8v16h4ZM8.971 17.715l7.5 4.5l2.058-3.43l-7.5-4.5l-2.058 3.43Zm9.477 4.546l6.5-3.5l-1.896-3.522l-6.5 3.5l1.896 3.522Zm6.544-6.997l-14-8l-1.984 3.472l14 8l1.984-3.473ZM8.891 7.336l-6 4l2.218 3.328l6-4l-2.218-3.328ZM2 13v22h4V13H2Zm.89 23.664l6 4l2.22-3.328l-6-4l-2.22 3.328Zm8.102 4.072l21-12l-1.984-3.473l-21 12l1.984 3.474Z"/>
+              <path d="M17 28v-7L38 9l6 4v22l-6 4l-14-8l6.5-3.5L38 32V16L17 28Z"/>
+              <path fill="currentColor" d="m17 21l-.992-1.736A2 2 0 0 0 15 21h2Zm0 7h-2v3.446l2.992-1.71L17 28Zm21-12h2a2 2 0 0 0-2.992-1.736L38 16Zm0 16l-1.029 1.715A2 2 0 0 0 40 32h-2Zm-7.5-4.5l1.029-1.715a2 2 0 0 0-1.977-.046L30.5 27.5ZM24 31l-.948-1.76a2 2 0 0 0-.044 3.497L24 31Zm14 8l-.992 1.736a2 2 0 0 0 2.101-.072L38 39Zm6-4l1.11 1.664A2 2 0 0 0 46 35h-2Zm0-22h2a2 2 0 0 0-.89-1.664L44 13Zm-6-4l1.11-1.664a2 2 0 0 0-2.102-.072L38 9ZM15 21v7h4v-7h-4Zm2.992 8.736l21-12l-1.984-3.473l-21 12l1.984 3.473ZM36 16v16h4V16h-4Zm3.029 14.285l-7.5-4.5l-2.058 3.43l7.5 4.5l2.058-3.43Zm-9.477-4.546l-6.5 3.5l1.896 3.522l6.5-3.5l-1.896-3.522Zm-6.544 6.997l14 8l1.984-3.472l-14-8l-1.984 3.473Zm16.101 7.928l6-4l-2.218-3.328l-6 4l2.218 3.328ZM46 35V13h-4v22h4Zm-.89-23.664l-6-4l-2.22 3.328l6 4l2.22-3.328Zm-8.102-4.072l-21 12l1.984 3.473l21-12l-1.984-3.473Z"/>
+          </g>
+      </svg>
+        )
       },
       {
         title: "Stay Accountable",
-        subtitle: "Keep Climbing",
-        text: "Build habits, track progress, and celebrate every step.",
-        img: "/Birds.png"
+        subtitle: "Keep Climbing Higher",
+        description: "Build sustainable habits, track your progress, and celebrate every step forward. Create lasting change that transforms your life.",
+        features: [
+          "Establish powerful daily routines",
+          "Track progress and celebrate wins",
+          "Build lasting habits and systems",
+          "Maintain momentum and consistency"
+        ],
+        accent: "from-green-400 via-emerald-300 to-teal-400",
+        icon: (
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="34" viewBox="0 0 16 16">
+          <path fill="currentColor" d="M14 1v3h-3V1H5v3H2V1H0v15h16V1h-2zM3 15H1v-2h2v2zm0-3H1v-2h2v2zm0-3H1V7h2v2zm3 6H4v-2h2v2zm0-3H4v-2h2v2zm0-3H4V7h2v2zm3 6H7v-2h2v2zm0-3H7v-2h2v2zm0-3H7V7h2v2zm3 6h-2v-2h2v2zm0-3h-2v-2h2v2zm0-3h-2V7h2v2zm3 6h-2v-2h2v2zm0-3h-2v-2h2v2zm0-3h-2V7h2v2z"/>
+          <path fill="currentColor" d="M3 0h1v3H3V0zm9 0h1v3h-1V0z"/>
+          </svg>
+        )
       }
     ].map((bucket, i) => (
       <motion.div
@@ -428,45 +485,49 @@ export default function CentralPointPartnersWebsite() {
         className="relative group cursor-pointer"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        whileHover={{ scale: 1.2 }}
-        transition={{ delay: i * 0.2, duration: 0.4 }}
+        whileHover={{ scale: 1.03, y: -12, rotateY: 2 }}
+        transition={{ delay: i * 0.1, duration: 0.3, ease: "easeOut" }}
         viewport={{ once: true }}>
         
-        {/* Animated Gold Border Sliver */}
+        {/* Animated Gradient Border */}
         <div className="absolute inset-0 rounded-3xl overflow-hidden">
-          <div className="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r from-transparent via-yellow-400 to-transparent bg-clip-border animate-border-spin opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${bucket.accent} opacity-0 group-hover:opacity-100 transition-all duration-300 blur-sm scale-110`}></div>
+          <div className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${bucket.accent} opacity-20 group-hover:opacity-50 transition-all duration-200`}></div>
         </div>
         
         {/* Card Content */}
-        <div className="relative bg-white rounded-3xl shadow-lg p-6 text-center backdrop-blur-sm transition-all duration-300 group-hover:shadow-xl">
-          <img src={bucket.img} alt={bucket.title} className="w-full h-40 object-cover rounded-xl mb-4" />
-          <h4 className="text-xl font-light text-slate-600 italic mb-1">{bucket.title}</h4>
-          <h5 className="text-md font-light text-slate-500 mb-2">{bucket.subtitle}</h5>
-          <p className="text-sm font-light text-slate-500">{bucket.text}</p>
+        <div className="relative bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg p-5 text-center transition-all duration-300 group-hover:shadow-xl border border-white/20 h-full flex flex-col">
+          
+          {/* Icon and Title Section */}
+          <div className="flex flex-col items-center mb-4">
+            <div className="mb-3 group-hover:scale-110 transition-transform duration-200 text-slate-600 group-hover:text-slate-800">
+              {bucket.icon}
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-slate-800 mb-1 group-hover:text-slate-900 transition-colors duration-300">
+                {bucket.title}
+              </h4>
+              <h5 className="text-sm font-medium text-slate-600 group-hover:text-slate-700 transition-colors duration-300">
+                {bucket.subtitle}
+              </h5>
+            </div>
+          </div>
+          
+          {/* Description */}
+          <p className="text-slate-600 leading-relaxed mb-4 text-sm">
+            {bucket.description}
+          </p>
+          
+
+          
+          {/* Hover Effect Overlay */}
+          <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${bucket.accent} opacity-0 group-hover:opacity-8 transition-opacity duration-200`}></div>
         </div>
       </motion.div>
     ))}
   </div>
 
-  <style jsx>{`
-    @keyframes border-spin {
-      0% {
-        transform: rotate(0deg);
-        background: conic-gradient(from 0deg, transparent 70%, #facc15 85%, #f59e0b 90%, #facc15 95%, transparent 100%);
-      }
-      100% {
-        transform: rotate(360deg);
-        background: conic-gradient(from 360deg, transparent 70%, #facc15 85%, #f59e0b 90%, #facc15 95%, transparent 100%);
-      }
-    }
-    
-    .animate-border-spin {
-      animation: border-spin 2s linear infinite;
-      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      mask-composite: xor;
-      padding: 2px;
-    }
-  `}</style>
+
 </section>
             {/* Work with Connie Bellisari Section */}
 <section className="relative py-24 px-6 bg-gradient-to-br from-slate-100/70 to-blue-100/70 overflow-hidden">
@@ -489,10 +550,10 @@ export default function CentralPointPartnersWebsite() {
       Certified Life Coach and Business Strategy Consultant
     </motion.h3>
 
-    <div className="grid lg:grid-cols-2 gap-16 items-center">
-      {/* Photo with background */}
+    <div className="grid lg:grid-cols-3 gap-16 items-center">
+      {/* Photo with background - now takes up 1/3 of the space */}
       <motion.div 
-        className="relative"
+        className="lg:col-span-1 flex justify-center lg:justify-start -mt-28"
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
@@ -501,9 +562,9 @@ export default function CentralPointPartnersWebsite() {
         {/* Background decoration */}
         <div className="absolute -inset-4 bg-gradient-to-br from-yellow-100/60 via-orange-50/40 to-pink-100/60 rounded-3xl blur-xl"></div>
         
-        {/* Photo container */}
-        <div className="relative bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-2xl border border-white/50">
-          <div className="aspect-[4/5] bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl overflow-hidden shadow-lg">   
+        {/* Photo container - increased size by 50% */}
+        <div className="relative bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-2xl border border-white/50 w-96">
+          <div className="aspect-[3/4] w-full bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl overflow-hidden shadow-lg">   
             <img 
               src="/Connie-headshot.JPG"
               alt="Connie Bellisari"
@@ -512,21 +573,21 @@ export default function CentralPointPartnersWebsite() {
           </div>
           
           {/* Optional decorative elements */}
-          <div className="absolute -top-2 -right-2 w-8 h-8 bg-yellow-200 rounded-full opacity-70"></div>
+          <div className="absolute -top-3 -right-3 w-8 h-8 bg-yellow-200 rounded-full opacity-70"></div>
           <div className="absolute -bottom-3 -left-3 w-6 h-6 bg-orange-200 rounded-full opacity-60"></div>
         </div>
       </motion.div>
 
-      {/* Content */}
+      {/* Content - now takes up 2/3 of the space */}
       <motion.div 
-        className="space-y-3"
+        className="lg:col-span-2 space-y-6"
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
         viewport={{ once: true }}>
         
-        <div className="prose prose-lg text-slate-600 font-light leading-relaxed">
-          <p>
+        <div className="prose prose-lg text-slate-600 font-light leading-relaxed max-w-none">
+          <p className="text-lg leading-relaxed">
             Business coaching is strategy focused. Each session together is your time 
             to focus on your business vision and growth path. You have the opportunity to 
             take the time to create a business strategy that is in alignment with your 
