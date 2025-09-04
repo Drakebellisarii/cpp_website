@@ -11,32 +11,32 @@ export default function CentralPointPartnersWebsite() {
     {
       quote: "Trying to manage a team and heal from a broken marriage felt impossible. GPP gave me space to breathe, tools to lead, and the strength to thrive. I'm proud if who I'm becoming.",
       author: "TM",
-      role: "Buisness Owner"
+      role: "Buisness Owner - Westerville, Ohio"
     },
     {
       quote: "After my divorce, I didn't recognize my life or myself. Guided Peak Potential helped me reconnect who I really am - not just as a business owner, but as a woman. I'm stronger, clearer, and finally leading with confidence.",
       author: "JC",
-      role: "Co-owner"
+      role: "Co-owner - Dublin, Ohio"
     },
     {
-      quote: "Her coaching is part strategy, part soul work. I now have boundaries in my buisness, peace in my personal life, and a renewed sense of purpose. I only wish I'd started sooner.",
-      author: "Keenan B.",
-      role: "Creative Director"
+      quote: "I met Constance at a networking event, and I didn't think coaching could shift my mindset. But after just a few sessions, I was able to start rethinking my choices and was able to guide myself into a positive productive space. She is a good listener and a great guide. and asked me the right questions to nmake me dig deeper into what I was tryingt to suppress.",
+      author: "DR",
+      role: "Buisness Co-owner - Jacksonville, FL"
     },
     {
-      quote: "As a founder, I was overwhelmed with decision fatigue and lost sight of my why. Constance brought structure to the chaos and helped me align my buisness goals with my personal values. Game changer",
-      author: "Chat gpt-4.5",
-      role: "Large Language Model"
+      quote: "I was reffered to Constance by my mom and glad I reached out. Her coaching is part strategy, part soul work. She was able to help me establish boundaries in my buisness, peace in my personal life, and a renewed sense of purpose.",
+      author: "AL",
+      role: "Rakki practitioner and life coach - Columbus, OH"
     },
     {
-      quote: "Didn't think coaching could shift my mindset the way therapy never did. But after just a feew sessions, I saw real change. Constance helped me turn my breakdown into a breakthough",
-      author: "Chat gpt-4.5",
-      role: "Large Language Model"
+      quote:" I reached out to Constance after announcing my divorce. It was harder than I realized as I was trying to navigate a new career, and new life, after sending my son off to college. I still work with her and have reduced our sessions to bimonthly, as she still helps to keep me grounded and live a life that has meaning.",
+      author: "MC",
+      role: "Mother - Columbus, OH"
     },
     {
-      quote: "Working with Constance helped me reconnect with the version of myself I had buried under years of stress and obligation. She didn;t just offer guidence - she gave me clarity, tools, and confidence to rewrite my story. I'm finally livin",
-      author: "Chat gpt-4.5",
-      role: "Large Language Model"
+      quote: "Working with Constance helped me reconnect with the version of myself I had buried under years of stress and obligation. She didn;t just offer guidence, she gave me clarity, tools, and confidence to rewrite my story. I'm finally livin",
+      author: "DB",
+      role: "Buisness Owner - Portland, ME"
     }
   ];
 
@@ -63,23 +63,6 @@ export default function CentralPointPartnersWebsite() {
       features: ["Individual sessions", "Personalized approach", "Goal-oriented", "Flexible scheduling"],
       icon: (
         <svg 
-          viewBox="-6 2 28 28" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="1.5" 
-          className="w-full h-full"
-        >    
-        <path d="M4 4.5V19a1 1 0 0 0 1 1h15M7 14l4-4 4 4 5-5m0 0h-3.207M20 9v3.207"/>
-        </svg>
-
-      )
-    },
-    {
-      title: "Buisness Strategy Coaching", 
-      desc: "Strategic career development that aligns your professional path with your values, helping you create meaningful work that fulfills both your ambitions and purpose.",
-      features: ["Career strategy", "Professional growth", "Industry insights", "Network building"],
-      icon: (
-        <svg 
           viewBox="-8 2 28 28" 
           fill="none" 
           stroke="currentColor" 
@@ -88,6 +71,22 @@ export default function CentralPointPartnersWebsite() {
         >
             <path d="M12.4472 2.10557c-.2815-.14076-.6129-.14076-.8944 0L5.90482 4.92956l.37762.11119c.01131.00333.02257.00687.03376.0106L12 6.94594l5.6808-1.89361.3927-.13363-5.6263-2.81313ZM5 10V6.74803l.70053.20628L7 7.38747V10c0 .5523-.44772 1-1 1s-1-.4477-1-1Zm3-1c0-.42413.06601-.83285.18832-1.21643l3.49538 1.16514c.2053.06842.4272.06842.6325 0l3.4955-1.16514C15.934 8.16715 16 8.57587 16 9c0 2.2091-1.7909 4-4 4-2.20914 0-4-1.7909-4-4Z"/>
             <path d="M14.2996 13.2767c.2332-.2289.5636-.3294.8847-.2692C17.379 13.4191 19 15.4884 19 17.6488v2.1525c0 1.2289-1.0315 2.1428-2.2 2.1428H7.2c-1.16849 0-2.2-.9139-2.2-2.1428v-2.1525c0-2.1409 1.59079-4.1893 3.75163-4.6288.32214-.0655.65589.0315.89274.2595l2.34883 2.2606 2.3064-2.2634Z"/>
+        </svg>
+      )
+    },
+    {
+      title: "Buisness Strategy Coaching", 
+      desc: "Strategic career development that aligns your professional path with your values, helping you create meaningful work that fulfills both your ambitions and purpose.",
+      features: ["Career strategy", "Professional growth", "Industry insights", "Network building"],
+      icon: (
+        <svg 
+          viewBox="-6 2 28 28" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="1.5" 
+          className="w-full h-full"
+        >    
+        <path d="M4 4.5V19a1 1 0 0 0 1 1h15M7 14l4-4 4 4 5-5m0 0h-3.207M20 9v3.207"/>
         </svg>
       )
     }
@@ -169,7 +168,7 @@ export default function CentralPointPartnersWebsite() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}>
           <img 
-            src="/GPP-logo.svg" 
+            src="/new-GPP.svg" 
             alt="Guided Peak Potential" 
             className="h-16 w-auto object-contain"
           />
@@ -392,7 +391,8 @@ export default function CentralPointPartnersWebsite() {
       </section>
 
       {/* New Change Your Life Now Animation + Buckets Section */}
-<section className="py-16 px-6 bg-gradient-to-b from-slate-400/60 via-slate-700/80 to-slate-700">
+<section className="py-16 px-6 bg-gradient-to-b from-slate-400/60 via-slate-700/80 to-slate-700 relative overflow-hidden group">
+        
 <motion.h2
     className="text-5xl text-center font-light text-white italic mb-12"
     animate={{ y: [0, -4, 0], opacity: [0.8, 1, 0.8] }}
@@ -431,11 +431,8 @@ export default function CentralPointPartnersWebsite() {
         ],
         accent: "from-purple-400 via-pink-300 to-red-400",
         icon: (
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
-            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-            <path d="M2 17l10 5 10-5"/>
-            <path d="M2 12l10 5 10-5"/>
-            <path d="M12 2v20"/>
+          <svg className="w-8 h-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14v3m4-6V7a3 3 0 1 1 6 0v4M5 11h10a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1Z"/>
           </svg>
         )
       },
@@ -529,8 +526,9 @@ export default function CentralPointPartnersWebsite() {
 
 
 </section>
-            {/* Work with Connie Bellisari Section */}
-<section className="relative py-24 px-6 bg-gradient-to-br from-slate-100/70 to-blue-100/70 overflow-hidden">
+                  {/* Work with Connie Bellisari Section */}
+      <section className="relative py-24 px-6 bg-gradient-to-br from-slate-100/70 to-blue-100/70 overflow-hidden group">
+        
   <div className="max-w-7xl mx-auto">
     <motion.h2 
       className="text-5xl font-light text-center mb-6 text-black/100 tracking-wide"
@@ -690,7 +688,7 @@ export default function CentralPointPartnersWebsite() {
             My Philosophy
           </motion.h3>
           <motion.div 
-            className="backdrop-blur-sm p-5 rounded-3xl shadow-lg border border-slate-200/30"
+            className="backdrop-blur-md p-5 rounded-3xl shadow-lg border border-slate-200/30 bg-white/60"
             whileHover={{ 
               scale: 1.02,
               boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
@@ -709,7 +707,10 @@ export default function CentralPointPartnersWebsite() {
       </section>
 
   {/*Pathways to growth section*/}
-    <section id="services" className="relative py-24 px-6 bg-white overflow-hidden">
+    <section id="services" className="relative py-24 px-6 bg-white overflow-hidden group">
+      {/* GPP Logo Watermark - Top Left */}
+      <div className="absolute top-8 left-8 pointer-events-none z-0">
+      </div>
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Enhanced header */}
         <motion.div 
@@ -836,7 +837,7 @@ export default function CentralPointPartnersWebsite() {
       {/* Section 2: Testimonials */}
       <section 
   className="relative py-24 px-6 bg-cover bg-center overflow-hidden"
-  style={{ backgroundImage: "url('/bears.png')" }}
+  style={{ backgroundImage: "url('/Bears.png')" }}
 >
   {/* Dark overlay for text readability */}
   <div className="absolute inset-0 backdrop-blur-[2px] bg-black/20 z-10"></div>
@@ -932,7 +933,15 @@ export default function CentralPointPartnersWebsite() {
         </div>
       </section>
 
-      <section className="relative py-20 px-6 bg-white overflow-hidden">
+      <section className="relative py-20 px-6 bg-white overflow-hidden group">
+        {/* GPP Logo Watermark */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+          <img
+            src="/new-GPP.svg"
+            alt=""
+            className="w-80 h-80 opacity-6 group-hover:opacity-12 transition-opacity duration-500"
+          />
+        </div>
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Hero text */}
         <motion.div 
