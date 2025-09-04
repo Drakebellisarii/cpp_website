@@ -526,147 +526,142 @@ export default function CentralPointPartnersWebsite() {
 
 
 </section>
-                  {/* Work with Connie Bellisari Section */}
-      <section className="relative py-24 px-6 bg-gradient-to-br from-slate-100/70 to-blue-100/70 overflow-hidden group">
-        
-  <div className="max-w-7xl mx-auto">
-    <motion.h2 
-      className="text-5xl font-light text-center mb-6 text-black/100 tracking-wide"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}>
-      Work With Constance Bellisari
-    </motion.h2>
-    
-    <motion.h3 
-      className="text-2xl font-light text-center mb-16 text-slate-600"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
-      viewport={{ once: true }}>
-      Certified Life Coach and Business Strategy Consultant
-    </motion.h3>
+ <section className="py-20 px-6 bg-white relative overflow-hidden">
+       {/* Subtle background element */}
+       <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-50/30"></div>
+       
+       <div className="max-w-6xl mx-auto relative">
+         <div className="grid lg:grid-cols-12 gap-12 items-center">
+           
+           {/* Left Side - Photo */}
+           <motion.div 
+             className="lg:col-span-5 relative"
+             initial={{ opacity: 0, x: -50 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             transition={{ duration: 0.8 }}
+             viewport={{ once: true }}>
+             
+             {/* Photo container with creative framing */}
+             <div className="relative">
+               {/* Blue accent frame */}
+               <div className="absolute -top-3 -left-3 w-full h-full border-2 border-blue-500 -z-10"></div>
+               
+               {/* Main photo */}
+               <div className="w-full h-[480px] bg-gray-100 shadow-xl relative overflow-hidden flex items-center justify-center">
+                 <img 
+                   src="/Connie-headshot.JPG"
+                   alt="Connie Bellisari"
+                   className="max-w-full max-h-full object-contain"
+                 />
+                 
+                 {/* Blue overlay strip */}
+                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-blue-500"></div>
+               </div>
+               
+               {/* Floating signature card */}
+               <motion.div
+                 className="absolute -bottom-4 -right-4 bg-white shadow-lg px-4 py-3 border-l-4 border-blue-500"
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 0.6, delay: 0.4 }}
+                 viewport={{ once: true }}>
+                 <p className="text-xs text-gray-600 font-light">Certified Life Coach</p>
+                 <p className="text-lg font-light text-gray-800 italic">Connie Bellisari</p>
+               </motion.div>
+             </div>
+           </motion.div>
 
-    <div className="grid lg:grid-cols-3 gap-16 items-center">
-      {/* Photo with background - now takes up 1/3 of the space */}
-      <motion.div 
-        className="lg:col-span-1 flex justify-center lg:justify-start -mt-28"
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        viewport={{ once: true }}>
-        
-        {/* Background decoration */}
-        <div className="absolute -inset-4 bg-gradient-to-br from-yellow-100/60 via-orange-50/40 to-pink-100/60 rounded-3xl blur-xl"></div>
-        
-        {/* Photo container - increased size by 50% */}
-        <div className="relative bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-2xl border border-white/50 w-96">
-          <div className="aspect-[3/4] w-full bg-gradient-to-br from-slate-100 to-slate-200 rounded-xl overflow-hidden shadow-lg">   
-            <img 
-              src="/Connie-headshot.JPG"
-              alt="Connie Bellisari"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          
-          {/* Optional decorative elements */}
-          <div className="absolute -top-3 -right-3 w-8 h-8 bg-yellow-200 rounded-full opacity-70"></div>
-          <div className="absolute -bottom-3 -left-3 w-6 h-6 bg-orange-200 rounded-full opacity-60"></div>
-        </div>
-      </motion.div>
+           {/* Right Side - Content */}
+           <motion.div 
+             className="lg:col-span-7 space-y-6"
+             initial={{ opacity: 0, x: 50 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             transition={{ duration: 0.8, delay: 0.2 }}
+             viewport={{ once: true }}>
+             
+             {/* Header with creative typography */}
+             <div className="space-y-4">
+               <div className="flex items-center space-x-3 mb-2">
+                 <div className="w-8 h-[1px] bg-blue-500"></div>
+                 <span className="text-xs tracking-wider text-blue-500 font-medium uppercase">Strategy Consultant</span>
+               </div>
+               
+               <h2 className="text-4xl font-light text-gray-900 leading-tight">
+                 Work With
+                 <span className="block text-5xl text-blue-500 font-normal mt-1">
+                   Constance Bellisari
+                 </span>
+               </h2>
+             </div>
 
-      {/* Content - now takes up 2/3 of the space */}
-      <motion.div 
-        className="lg:col-span-2 space-y-6"
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        viewport={{ once: true }}>
-        
-        <div className="prose prose-lg text-slate-600 font-light leading-relaxed max-w-none">
-          <p className="text-lg leading-relaxed">
-            Business coaching is strategy focused. Each session together is your time 
-            to focus on your business vision and growth path. You have the opportunity to 
-            take the time to create a business strategy that is in alignment with your 
-            strengths, values, and market opportunities. As we work together, that vision can 
-            become a reality.
-          </p>
-        </div>
+             {/* Description */}
+             <div className="space-y-3">
+               <div className="w-16 h-[2px] bg-blue-500"></div>
+               <p className="text-base text-gray-700 font-light leading-relaxed max-w-lg">
+                 Business coaching is strategy focused. Each session together is your time 
+                 to focus on your business vision and growth path. Create a business strategy 
+                 that aligns with your strengths, values, and market opportunities.
+               </p>
+             </div>
 
-        <motion.h4 
-          className="text-3xl font-light text-yellow-400 mt-12 mb-6"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}>
-          My promise to you as your business coach...
-        </motion.h4>
+             {/* Promise Section */}
+             <div className="space-y-4">
+               <h4 className="text-xl font-light text-gray-900 relative">
+                 My promise to you
+                 <span className="absolute -bottom-1 left-0 w-12 h-[2px] bg-blue-500"></span>
+               </h4>
 
-        <div className="space-y-4 text-slate-600 font-light leading-relaxed">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            viewport={{ once: true }}>
-            I offer strategic questioning and analysis, which allow you to find new 
-            opportunities and innovative solutions.
-          </motion.p>
+               <div className="grid gap-3">
+                 {[
+                   "Strategic questioning and analysis to find new opportunities and innovative solutions",
+                   "Listen and give you space to strategize, reflect, and plan",
+                   "Guide you to recognize and move past limiting beliefs slowing your progress",
+                   "Challenge you to think beyond what you thought was possible"
+                 ].map((promise, index) => (
+                   <motion.div
+                     key={index}
+                     className="flex items-start space-x-3 group"
+                     initial={{ opacity: 0, y: 20 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                     viewport={{ once: true }}>
+                     <div className="w-1 h-6 bg-blue-500 flex-shrink-0 mt-1 group-hover:bg-blue-600 transition-colors"></div>
+                     <p className="text-sm text-gray-700 font-light leading-relaxed">{promise}</p>
+                   </motion.div>
+                 ))}
+               </div>
+             </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            viewport={{ once: true }}>
-            I listen and give you space to strategize, reflect, and plan.
-          </motion.p>
+             {/* Partnership statement */}
+             <motion.div
+               className="bg-blue-50/50 p-6 relative"
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.8, delay: 0.7 }}
+               viewport={{ once: true }}>
+               <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500"></div>
+               <div className="space-y-2 text-gray-700 font-light leading-relaxed pl-4">
+                 <p className="text-sm">I will be your strategic partner, sounding board, and someone that will help you hold yourself accountable.</p>
+                 <p className="text-base italic text-blue-600">
+                   "Let's work together to move toward a business where you are truly living your entrepreneurial vision."
+                 </p>
+               </div>
+             </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-            viewport={{ once: true }}>
-            I guide you to recognize and move past limiting beliefs and obstacles that may 
-            be slowing your business progress, and help you reframe or adjust what is not 
-            serving your growth.
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
-            viewport={{ once: true }}>
-            I will challenge you to think beyond what you thought was possible 
-            for your business and support you to reach your new vision.
-          </motion.p>
-        </div>
-
-        <motion.div 
-          className="mt-8 space-y-4 text-slate-600 font-light"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.1 }}
-          viewport={{ once: true }}>
-          <p>I will not give advice, my opinions, or offer information and resources unless requested.</p>
-          <p>I will be your strategic partner, sounding board, and someone that will help you hold yourself accountable.</p>
-          <p>Let's work together to move toward a business where you are truly living your entrepreneurial vision.</p>
-        </motion.div>
-
-        <motion.div 
-          className="mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-          viewport={{ once: true }}>
-          <h5 className="text-2xl font-light text-yellow-400 mb-2">I believe in you...</h5>
-          <div className="text-4xl font-light text-slate-500 italic">
-            Connie Bellisari
-          </div>
-        </motion.div>
-      </motion.div>
-    </div>
-  </div>
-</section>
+             {/* Belief statement */}
+             <motion.div
+               className="text-right"
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               transition={{ duration: 0.8, delay: 0.9 }}
+               viewport={{ once: true }}>
+               <p className="text-xl font-light text-blue-500 mb-1">I believe in you...</p>
+               <div className="w-20 h-[1px] bg-blue-500 ml-auto"></div>
+             </motion.div>
+           </motion.div>
+         </div>
+       </div>
+     </section>
 
       {/* About Section */}
       <section 
