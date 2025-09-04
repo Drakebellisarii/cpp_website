@@ -832,7 +832,7 @@ export default function CentralPointPartnersWebsite() {
       {/* Section 2: Testimonials */}
       <section 
   className="relative py-24 px-6 bg-cover bg-center overflow-hidden"
-  style={{ backgroundImage: "url('/Bears.png')" }}
+  style={{ backgroundImage: "url('/bears.png')" }}
 >
   {/* Dark overlay for text readability */}
   <div className="absolute inset-0 backdrop-blur-[2px] bg-black/20 z-10"></div>
