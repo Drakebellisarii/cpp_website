@@ -15,10 +15,33 @@ export default function ContactPage() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('_replyto', formData.email);
+      
+      const response = await fetch('https://formspree.io/f/xwpnzpdp', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        alert('Thank you for your message! We\'ll get back to you soon.');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        alert('Oops! There was a problem sending your message. Please try again.');
+      }
+    } catch (error) {
+      alert('Oops! There was a problem sending your message. Please try again.');
+    }
   };
 
   return (
@@ -120,7 +143,7 @@ export default function ContactPage() {
           <h1 className="text-4xl md:text-5xl font-light text-white mb-4 leading-tight">
             Let's Begin Your
             <span className="block text-5xl md:text-6xl font-extralight italic text-yellow-350 mt-2">
-              transformative journey
+              Transformative Journey
             </span>
           </h1>
           <p className="text-lg font-light text-white max-w-xl mx-auto leading-relaxed">

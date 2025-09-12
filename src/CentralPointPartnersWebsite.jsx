@@ -59,7 +59,7 @@ export default function CentralPointPartnersWebsite() {
   const services = [
     {
       title: "Personal Coaching",
-      desc: "One-on-one sessions that honor your unique journey, offering personalized guidance as you navigate toward your authentic self and unlock your fullest potential.",
+      desc: "One-on-one sessions that honor your unique journey, offering personalized guidance and supportive insight as you navigate the path toward your authentic self, unlocking your fullest potential and creating a life aligned with meaning and growth.",
       features: ["Individual sessions", "Personalized approach", "Goal-oriented", "Flexible scheduling"],
       icon: (
         <svg 
@@ -75,9 +75,9 @@ export default function CentralPointPartnersWebsite() {
       )
     },
     {
-      title: "Buisness Strategy Coaching", 
-      desc: "Strategic career development that aligns your professional path with your values, helping you create meaningful work that fulfills both your ambitions and purpose.",
-      features: ["Career strategy", "Professional growth", "Industry insights", "Network building"],
+      title: "Buisness Coaching", 
+      desc: "Strategic career development or business strategy that aligns your professional path with your values, helping you establish business boundaries and objectives or helping you create meaningful work that fulfills your ambition and purpose.",
+      features: ["Career strategy", "Professional growth", "Business objectives", "Network building"],
       icon: (
         <svg 
           viewBox="-6 2 28 28" 
@@ -169,7 +169,7 @@ export default function CentralPointPartnersWebsite() {
           transition={{ duration: 0.8 }}>
           <img 
             src="/new-GPP.svg" 
-            alt="Guided Peak Potential" 
+            alt="G1d Peak Potential" 
             className="h-16 w-auto object-contain"
           />
         </motion.div>
@@ -613,7 +613,7 @@ export default function CentralPointPartnersWebsite() {
 
                <div className="grid gap-3">
                  {[
-                   "Strategic questioning and analysis to find new opportunities and innovative solutions",
+                   "Strategic questioning to find new opportunities and innovative solutions",
                    "Listen and give you space to strategize, reflect, and plan",
                    "Guide you to recognize and move past limiting beliefs slowing your progress",
                    "Challenge you to think beyond what you thought was possible"
@@ -664,42 +664,43 @@ export default function CentralPointPartnersWebsite() {
      </section>
 
       {/* About Section */}
-      <section 
-        className="relative flex items-center justify-center min-h-[75vh] px-6 overflow-hidden bg-cover bg-center"
-        style={{ backgroundImage: "url('/whale.jpg')" }}>
-        <motion.div 
-          className="relative z-10 max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 60 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 2 }}
-          viewport={{ once: true }}>
-          <motion.h3 
-            className="text-4xl font-light mb-8 text-slate-900 italic"
-            whileInView={{
-              y: [0, -3, 0],
-              opacity: [0.8, 1, 0.8]
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}>
-            My Philosophy
-          </motion.h3>
-          <motion.div 
-            className="backdrop-blur-md p-5 rounded-3xl shadow-lg border border-slate-200/30 bg-white/60"
-            whileHover={{ 
-              scale: 1.02,
-              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
-            }}>
-            <motion.p 
-              className="text-lg font-light leading-relaxed text-slate-600 max-w-3xl mx-auto"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 1 }}>
-              The summit calls, not because it promises ease, but because it promises you. Every great peak scaled begins with a single step into the unknown, where courage meets possibility and dreams transform into destiny. At Guided Peak Potential, we don't just guide you up the mountain—we awaken the climber within you, the one who has always known that your greatest adventures lie beyond your comfort zone.
-              This isn't about reaching someone else's definition of success. This is about discovering the breathtaking view that can only be seen from your own personal summit. Every challenge you face becomes a stepping stone, every setback a lesson in resilience, every breakthrough a celebration of your expanding potential. The path may be steep, but the joy found in each hard-won step, each moment of clarity, each breakthrough barrier—this is where life truly begins.
-              Your mountain is waiting. Not just the destination, but the magnificent journey of becoming who you were always meant to be. The air is thinner at the top, but the view is limitless, and the person you'll discover along the way will astound you. Together, we'll turn your potential into your reality, one intentional step at a time.
-            </motion.p>
-          </motion.div>
-        </motion.div>
-      </section>
+     
+      <section          
+  className="relative flex items-center justify-center min-h-[75vh] px-6 overflow-hidden bg-cover bg-center"         
+  style={{ backgroundImage: "url('/whale.jpg')" }}>         
+  <motion.div            
+    className="relative z-10 max-w-4xl ml-8 text-center"           
+    initial={{ opacity: 0, y: 60 }}            
+    whileInView={{ opacity: 1, y: 0 }}            
+    transition={{ duration: 2 }}           
+    viewport={{ once: true }}>           
+    <motion.h3              
+      className="text-4xl font-light mb-8 text-slate-900 italic"             
+      whileInView={{               
+        y: [0, -3, 0],               
+        opacity: [0.8, 1, 0.8]             
+      }}             
+      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}>             
+      My Philosophy           
+    </motion.h3>           
+    <motion.div              
+      className="backdrop-blur-md p-5 rounded-3xl shadow-lg border border-slate-200/30 bg-white/60"             
+      whileHover={{                
+        scale: 1.02,               
+        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"             
+      }}>             
+      <motion.p                
+        className="text-lg font-light leading-relaxed text-slate-600 max-w-3xl text-left"               
+        initial={{ opacity: 0 }}               
+        whileInView={{ opacity: 1 }}               
+        transition={{ delay: 0.5, duration: 1 }}>               
+        The summit calls, not because it promises ease, but because it promises you. Every great peak scaled begins with a single step into the unknown, where courage meets possibility and dreams transform into destiny. At Guided Peak Potential, we don't just guide you up the mountain—we awaken the climber within you, the one who has always known that your greatest adventures lie beyond your comfort zone.               
+        This isn't about reaching someone else's definition of success. This is about discovering the breathtaking view that can only be seen from your own personal summit. Every challenge you face becomes a stepping stone, every setback a lesson in resilience, every breakthrough a celebration of your expanding potential. The path may be steep, but the joy found in each hard-won step, each moment of clarity, each breakthrough barrier—this is where life truly begins.               
+        Your mountain is waiting. Not just the destination, but the magnificent journey of becoming who you were always meant to be. The air is thinner at the top, but the view is limitless, and the person you'll discover along the way will astound you. Together, we'll turn your potential into your reality, one intentional step at a time.             
+      </motion.p>           
+    </motion.div>         
+  </motion.div>       
+</section>
 
   {/*Pathways to growth section*/}
     <section id="services" className="relative py-24 px-6 bg-white overflow-hidden group">
@@ -929,14 +930,15 @@ export default function CentralPointPartnersWebsite() {
       </section>
 
       <section className="relative py-20 px-6 bg-white overflow-hidden group">
-        {/* GPP Logo Watermark */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-          <img
-            src="/new-GPP.svg"
-            alt=""
-            className="w-80 h-80 opacity-6 group-hover:opacity-12 transition-opacity duration-500"
-          />
-        </div>
+      {/* GPP Logo Watermark */}
+      <div className="absolute inset-0 flex items-end justify-center pointer-events-none z-0 pb-60">
+        <img
+          src="/new-GPP.svg"
+          alt=""
+          className="w-80 h-80 opacity-6 group-hover:opacity-12 transition-opacity duration-500"
+        />
+      </div>
+      
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Hero text */}
         <motion.div 
@@ -969,13 +971,103 @@ export default function CentralPointPartnersWebsite() {
           </motion.p>
         </motion.div>
 
+        <motion.div
+      className="text-center mb-16"
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: 0.6 }}
+    >
+
+      {/* Free Consultation motion batter */}
+      <motion.div
+        className="relative inline-flex items-center bg-gradient-to-r from-slate-50 via-blue-50 to-indigo-50 border border-slate-200 rounded-2xl px-10 py-6 mx-auto shadow-lg backdrop-blur-sm"
+        whileHover={{
+          scale: 1.02,
+          boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.15)",
+          borderColor: "rgba(99, 102, 241, 0.3)"
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 rounded-2xl opacity-30">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-100/20 to-indigo-100/20 rounded-2xl"></div>
+          <div className="absolute top-0 left-1/4 w-24 h-24 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+          <div className="absolute bottom-0 right-1/4 w-32 h-32 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-1000"></div>
+        </div>
+        
+        {/* Status indicator */}
+        <motion.div
+          className="relative w-3 h-3 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mr-5 shadow-sm"
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [1, 0.7, 1]
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full animate-ping opacity-30"></div>
+        </motion.div>
+        
+         {/* Text content */}
+         <div className="relative z-10">
+           <Link to="/contact" className="text-slate-700 font-medium text-lg tracking-wide hover:text-blue-600 transition-colors duration-300">
+             Start with a{' '}
+             <span className="font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+               free 15-minute
+             </span>{' '}
+             discovery call
+           </Link>
+         </div>
+        
+        {/* Arrow indicator */}
+        <motion.div
+          className="ml-5 text-slate-400"
+          animate={{ 
+            x: [0, 8, 0],
+            opacity: [0.7, 1, 0.7]
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <svg 
+            className="w-5 h-5" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d="M13 7l5 5m0 0l-5 5m5-5H6"
+            />
+          </svg>
+        </motion.div>
+        
+        {/* Subtle highlight line */}
+        <motion.div
+          className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-full"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+        />
+      </motion.div>
+    </motion.div>
+
         {/* Pricing cards container */}
         <motion.div 
           className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
         >
           {/* Quick Connect - 30 min */}
           <motion.div
@@ -983,7 +1075,7 @@ export default function CentralPointPartnersWebsite() {
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.8 }}
+            transition={{ duration: 0.7, delay: 1.0 }}
             whileHover={{ 
               y: -8,
               transition: { duration: 0.3, ease: "easeOut" }
@@ -1037,29 +1129,29 @@ export default function CentralPointPartnersWebsite() {
             </div>
           </motion.div>
 
-          {/* Deep Dive - 60 min (Featured) */}
+          {/* Commitment Packages */}
           <motion.div
             className="group relative bg-gradient-to-br from-blue-50 to-indigo-100/70 backdrop-blur-xl rounded-3xl p-8 border-2 border-blue-300 transition-all duration-300 ease-out transform scale-105"
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.9 }}
+            transition={{ duration: 0.7, delay: 1.1 }}
             whileHover={{ 
               y: -8,
-              scale: 1.05, // Keep the same scale to prevent tag movement
+              scale: 1.05,
               transition: { duration: 0.3, ease: "easeOut" }
             }}
           >
-            {/* Most Popular tag with fixed positioning */}
+            {/* Most Popular tag */}
             <motion.div 
               className="absolute -top-4 left-1/3 transform -translate-x-1/2 z-20"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 1.2 }}
+              transition={{ duration: 0.5, delay: 1.4 }}
             >
-              <div className="bg-gradient-to-r bg-center from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg ">
-                Most Popular
+              <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg">
+                Most popular
               </div>
             </motion.div>
 
@@ -1071,31 +1163,33 @@ export default function CentralPointPartnersWebsite() {
             
             <div className="relative z-10 pt-4">
               <div className="mb-6">
-                <h3 className="text-2xl font-medium text-slate-800 mb-2 group-hover:text-slate-900 transition-colors duration-300">Deep Dive</h3>
-                <p className="text-slate-700 text-sm">Complete therapeutic experience</p>
+                <h3 className="text-2xl font-medium text-slate-800 mb-2 group-hover:text-slate-900 transition-colors duration-300">Commitment Package</h3>
+                <p className="text-slate-700 text-sm">Sustained growth & transformation</p>
               </div>
               
-              <div className="mb-8">
-                <div className="flex items-baseline mb-2">
-                  <motion.span 
-                    className="text-6xl font-light text-slate-800"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    $150
-                  </motion.span>
-                  <span className="ml-2 text-slate-600">/ 60 min</span>
+              <motion.div 
+                className="p-6 bg-gradient-to-r from-slate-100 to-slate-200 rounded-2xl border border-slate-300 group-hover:from-blue-50 group-hover:to-indigo-50 group-hover:border-blue-200 transition-all duration-300 mb-6"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="flex justify-between items-center mb-3">
+                  <span className="text-slate-700 font-medium text-lg">8 × 30min Sessions</span>
+                  <div className="bg-green-500/20 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
+                    Save $150
+                  </div>
                 </div>
-              </div>
+                <div className="text-4xl font-light text-slate-800 mb-1">$650</div>
+                <div className="text-slate-600 text-sm">Only $81.25 per session</div>
+              </motion.div>
 
-              <div className="space-y-4 mb-8">
+              <div className="space-y-4">
                 <div className="flex items-center text-slate-700">
                   <motion.div 
                     className="w-2 h-2 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full mr-3"
                     whileHover={{ scale: 1.3 }}
                     transition={{ duration: 0.2 }}
                   />
-                  <span className="text-sm">Full therapeutic hour</span>
+                  <span className="text-sm">Consistent therapeutic support</span>
                 </div>
                 <div className="flex items-center text-slate-700">
                   <motion.div 
@@ -1103,7 +1197,7 @@ export default function CentralPointPartnersWebsite() {
                     whileHover={{ scale: 1.3 }}
                     transition={{ duration: 0.2 }}
                   />
-                  <span className="text-sm">Comprehensive exploration</span>
+                  <span className="text-sm">Long-term progress tracking</span>
                 </div>
                 <div className="flex items-center text-slate-700">
                   <motion.div 
@@ -1119,19 +1213,19 @@ export default function CentralPointPartnersWebsite() {
                     whileHover={{ scale: 1.3 }}
                     transition={{ duration: 0.2 }}
                   />
-                  <span className="text-sm">Follow-up resources</span>
+                  <span className="text-sm">Priority booking</span>
                 </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Bundle packages combined */}
+          {/* Extended Support */}
           <motion.div
             className="group relative bg-gradient-to-br from-slate-50 to-slate-100/50 backdrop-blur-xl rounded-3xl p-8 border border-slate-200 transition-all duration-300 ease-out"
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 1.0 }}
+            transition={{ duration: 0.7, delay: 1.2 }}
             whileHover={{ 
               y: -8,
               transition: { duration: 0.3, ease: "easeOut" }
@@ -1145,44 +1239,62 @@ export default function CentralPointPartnersWebsite() {
             
             <div className="relative z-10">
               <div className="mb-6">
-                <h3 className="text-2xl font-medium text-slate-800 mb-2 group-hover:text-slate-900 transition-colors duration-300">Commitment Packages</h3>
-                <p className="text-slate-600 text-sm">Sustained growth & transformation</p>
+                <h3 className="text-2xl font-medium text-slate-800 mb-2 group-hover:text-slate-900 transition-colors duration-300">Extended Support</h3>
+                <p className="text-slate-600 text-sm">Comprehensive transformation journey</p>
               </div>
               
-              <div className="space-y-6 mb-8">
-                <motion.div 
-                  className="p-4 bg-gradient-to-r from-slate-100 to-slate-200 rounded-2xl border border-slate-300 group-hover:from-blue-50 group-hover:to-indigo-50 group-hover:border-blue-200 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-slate-700 font-medium">8 × 30min Sessions</span>
-                    <div className="bg-green-500/20 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
-                      Save $150
-                    </div>
+              <motion.div 
+                className="p-6 bg-gradient-to-r from-slate-100 to-slate-200 rounded-2xl border border-slate-300 group-hover:from-blue-50 group-hover:to-indigo-50 group-hover:border-blue-200 transition-all duration-300 mb-6"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="flex justify-between items-center mb-3">
+                  <span className="text-slate-700 font-light text-lg">12 × 30min Sessions</span>
+                  <div className="bg-green-500/20 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
+                    Save $300
                   </div>
-                  <div className="text-3xl font-light text-slate-800">$650</div>
-                  <div className="text-slate-600 text-xs">$81.25 per session</div>
-                </motion.div>
+                </div>
+                <div className="text-4xl font-light text-slate-800 mb-1">$900</div>
+                <div className="text-slate-600 text-sm">Only $75 per session</div>
+              </motion.div>
 
-                <motion.div 
-                  className="p-4 bg-gradient-to-r from-slate-100 to-slate-200 rounded-2xl border border-slate-300 group-hover:from-blue-50 group-hover:to-indigo-50 group-hover:border-blue-200 transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-slate-700 font-medium">8 × 60min Sessions</span>
-                    <div className="bg-green-500/20 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
-                      Save $300
-                    </div>
-                  </div>
-                  <div className="text-3xl font-light text-slate-800">$900</div>
-                  <div className="text-slate-600 text-xs">$112.50 per session</div>
-                  </motion.div>
+              <div className="space-y-4">
+                <div className="flex items-center text-slate-700">
+                  <motion.div 
+                    className="w-2 h-2 bg-blue-500 rounded-full mr-3"
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                  <span className="text-sm">Extended therapeutic journey</span>
+                </div>
+                <div className="flex items-center text-slate-700">
+                  <motion.div 
+                    className="w-2 h-2 bg-blue-500 rounded-full mr-3"
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                  <span className="text-sm">Deep transformation work</span>
+                </div>
+                <div className="flex items-center text-slate-700">
+                  <motion.div 
+                    className="w-2 h-2 bg-blue-500 rounded-full mr-3"
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                  <span className="text-sm">Ongoing resource library</span>
+                </div>
+                <div className="flex items-center text-slate-700">
+                  <motion.div 
+                    className="w-2 h-2 bg-blue-500 rounded-full mr-3"
+                    whileHover={{ scale: 1.2 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                  <span className="text-sm">Priority support access</span>
+                </div>
               </div>
             </div>
-             </motion.div>
           </motion.div>
+        </motion.div>
 
         {/* Bottom CTA */}
         <motion.div 
@@ -1190,18 +1302,18 @@ export default function CentralPointPartnersWebsite() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          transition={{ duration: 0.8, delay: 1.4 }}
         >
           <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
-            Every journey begins with a single step. Choose the option that feels right for where you are today.
+            Every journey begins with a single step. Start with your complimentary 15-minute discovery call to find the perfect path forward.
           </p>
           <motion.div 
             className="inline-flex items-center text-navy-600 hover:text-navy-500 transition-colors duration-300 cursor-pointer"
             whileHover={{ scale: 1.05 }}
           >
-            <span className="mr-2">Not sure which is right for you?</span>
+            <span className="mr-2">Ready to begin your transformation?</span>
             <motion.a href="/contact">
-              <span className="font-medium underline">Let's talk</span>
+              <span className="font-medium underline">Schedule your free consultation</span>
             </motion.a>
           </motion.div>
         </motion.div>

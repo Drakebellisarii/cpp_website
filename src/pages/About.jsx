@@ -114,7 +114,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}>
-            Committed to nurturing transformation and guiding individuals, teams, and organizations 
+            Committed to nurturing transformation and guiding individuals
             toward their peak potential. With a philosophy rooted in presence, clarity, and intentional growth, 
             we believe that each journey is unique—and deserves care, attention, and wisdom.
           </motion.p>
@@ -134,7 +134,7 @@ export default function AboutPage() {
               viewport={{ once: true }}>
               <h2 className="text-4xl font-light text-slate-600 italic mb-6">Our Mission</h2>
               <p className="text-lg font-light text-slate-600 leading-relaxed mb-4">
-                To empower individuals and organizations to discover, develop, and achieve their highest potential 
+                To empower individuals to discover, develop, and achieve their highest potential 
                 through personalized coaching, strategic guidance, and unwavering support. We create transformative 
                 experiences that honor each client's unique journey while providing the tools, insights, and 
                 accountability needed for sustainable growth.
@@ -185,23 +185,14 @@ export default function AboutPage() {
             {[
               {
                 title: "Personalized Approach",
-                description: "Every coaching relationship is as unique as you are. We take time to understand your specific goals, challenges, and aspirations, creating a completely customized coaching experience that honors your individual journey and accelerates your growth.",
+                description: "Every coaching relationship is as unique as you are. We take time to understand your challenges and aspirations, creating a completely customized coaching experience that honors your individual journey and accelerates your growth.",
                 highlight: "100% Tailored to You"
               },
-              {
-                title: "Proven Track Record",
-                description: "Our clients consistently achieve breakthrough results, from landing dream jobs and starting successful businesses to finding deep personal fulfillment and creating lasting positive change in their lives and communities.",
-                highlight: "Measurable Results"
-              },
+              
               {
                 title: "Holistic Development",
                 description: "We don't just focus on one area of your life. Our approach integrates personal growth, professional development, relationships, and well-being to create sustainable transformation that elevates every aspect of your existence.",
                 highlight: "Complete Life Integration"
-              },
-              {
-                title: "Ongoing Support",
-                description: "Your journey doesn't end when our sessions do. We provide continued guidance, resources, and check-ins to ensure your growth momentum continues long after our formal coaching relationship concludes.",
-                highlight: "Long-term Partnership"
               }
             ].map((feature, i) => (
               <motion.div
