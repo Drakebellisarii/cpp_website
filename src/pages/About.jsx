@@ -38,44 +38,50 @@ export default function AboutPage() {
         </motion.div>
       </div>
 
-      {/* Header */}
-      <header className="relative p-6 flex justify-between items-center bg-white/80 backdrop-blur-sm shadow-lg top-0 z-50 border-b border-slate-200/50">
-        <motion.div
+      <header className="relative py-2 px-6 flex justify-between items-center bg-white/80 backdrop-blur-sm shadow-lg top-0 z-50 border-b border-slate-200/50">
+        <motion.div 
+          className="flex items-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}>
-          <a 
-            href="/"
-            className="text-3xl font-light tracking-wide text-slate-600 italic hover:text-slate-700 transition-colors duration-300">
-            Guided Peak Potential
-          </a>
+          <img 
+            src="/new-GPP.svg" 
+            alt="Guided Peak Potential" 
+            className="h-16 w-auto object-contain"
+          />
         </motion.div>
         <nav className="space-x-8 flex items-center">
-          {['Home', 'Contact'].map((item, i) => {
-            const baseProps = {
-              className: "text-slate-500 hover:text-slate-700 text-lg font-light tracking-wide transition-all duration-300 hover:underline decoration-2 decoration-blue-300 underline-offset-4",
-              initial: { opacity: 0, y: -10 },
-              animate: { opacity: 1, y: 0 },
-              transition: { delay: i * 0.1 + 0.3 }
-            };
+        {['Home', 'About', 'Contact'].map((item, i) => {
+  const isAbout = item === 'About';
+  const isContact = item === 'Contact';
+  const isHome = item === 'Home';
+  const baseProps = {
+    className: "text-slate-500 hover:text-slate-700 text-lg font-light tracking-wide transition-all duration-300 hover:underline decoration-2 decoration-blue-300 underline-offset-2 decoration-blue-300 underline-offset-4",
+    initial: { opacity: 0, y: -10 },
+    animate: { opacity: 1, y: 0 },
+    transition: { delay: i * 0.1 + 0.3 }
+  };
 
-            const href = item === 'Home' ? '/' : 
-                        item === 'Contact' ? '/contact' : 
-                        `/#${item.toLowerCase()}`;
-
-            return (
-              <motion.a key={item} href={href} {...baseProps}>
-                {item}
-              </motion.a>
-            );
-          })}
-          <motion.span 
-            className="text-yellow-400 text-lg font-light tracking-wide"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}>
-            About
-          </motion.span>
+  if (isHome) {
+    return (
+      <motion.a key={item} href="/" {...baseProps}>
+        Home
+      </motion.a>
+    );
+  } else if (isAbout) {
+    return (
+      <motion.a key={item} href="/about" {...baseProps}>
+        About
+      </motion.a>
+    );
+  } else if (isContact) {
+    return (
+      <motion.a key={item} href="/contact" {...baseProps}>
+        Contact
+      </motion.a>
+    );
+  }
+})}
         </nav>
       </header>
 
