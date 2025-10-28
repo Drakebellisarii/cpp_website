@@ -239,7 +239,7 @@ export default function CentralPointPartnersWebsite() {
       </section>
 
       {/* Core Pillars Section */}
-      <section className="py-24 px-6 bg-slate-50">
+      <section className="py-24 px-6 bg-gradient-to-b from-slate-50 via-blue-50/30 to-slate-100">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -302,7 +302,7 @@ export default function CentralPointPartnersWebsite() {
             ].map((pillar, i) => (
               <motion.div
                 key={i}
-                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100"
+                className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/50"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -454,7 +454,7 @@ export default function CentralPointPartnersWebsite() {
           <h3 className="text-4xl md:text-5xl font-light mb-8 text-white italic">
             My Philosophy
           </h3>
-          <div className="bg-white/95 backdrop-blur-md p-10 rounded-2xl shadow-2xl">
+          <div className="bg-white/90 backdrop-blur-lg p-10 rounded-2xl shadow-2xl border border-white/30">
             <p className="text-lg text-slate-700 leading-relaxed text-left space-y-4">
               <span className="block">
                 The summit calls, not because it promises ease, but because it promises you. Every great peak scaled begins with a single step into the unknown, where courage meets possibility and dreams transform into destiny. At Guided Peak Potential, we don't just guide you up the mountain—we awaken the climber within you, the one who has always known that your greatest adventures lie beyond your comfort zone.
@@ -533,7 +533,7 @@ export default function CentralPointPartnersWebsite() {
         className="relative py-24 px-6 bg-cover bg-center"
         style={{ backgroundImage: "url('/bears.png')" }}
       >
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/65"></div>
 
         <div className="relative z-10 max-w-6xl mx-auto">
           <motion.h3
@@ -557,7 +557,7 @@ export default function CentralPointPartnersWebsite() {
                   transition={{ duration: 0.4 }}
                   className="max-w-4xl mx-auto px-8"
                 >
-                  <div className="bg-white/95 backdrop-blur-md rounded-2xl p-12 shadow-2xl">
+                  <div className="bg-white/90 backdrop-blur-lg rounded-2xl p-12 shadow-2xl border border-white/30">
                     <blockquote className="text-xl md:text-2xl text-slate-700 mb-8 leading-relaxed italic">
                       "{testimonials[currentTestimonial].quote}"
                     </blockquote>
@@ -593,7 +593,7 @@ export default function CentralPointPartnersWebsite() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-24 px-6 bg-slate-50">
+      <section className="py-24 px-6 bg-gradient-to-b from-slate-100 via-slate-50 to-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -611,7 +611,7 @@ export default function CentralPointPartnersWebsite() {
 
             {/* Free Consultation Badge */}
             <motion.div
-              className="inline-flex items-center bg-white border border-blue-200 rounded-full px-8 py-4 shadow-sm"
+              className="inline-flex items-center bg-white/80 backdrop-blur-md border border-blue-200 rounded-full px-8 py-4 shadow-md"
               whileHover={{ scale: 1.02 }}
             >
               <div className="w-2.5 h-2.5 bg-blue-500 rounded-full mr-3 animate-pulse"></div>
@@ -627,7 +627,7 @@ export default function CentralPointPartnersWebsite() {
           <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Quick Connect */}
             <motion.div
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200"
+              className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/50"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -712,7 +712,7 @@ export default function CentralPointPartnersWebsite() {
 
             {/* Extended Support */}
             <motion.div
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200"
+              className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/50"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
