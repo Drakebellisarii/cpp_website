@@ -1,21 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Analytics } from "@vercel/analytics/react"
-
-const MotionLink = motion(Link);
+import ScrollExpandMedia from './components/ui/scroll-expansion-hero';
+import Header from './components/Header';
+import { CategoryList } from './components/ui/category-list';
 
 export default function CentralPointPartnersWebsite() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const testimonials = [
     {
@@ -141,185 +132,31 @@ export default function CentralPointPartnersWebsite() {
     <>
     <div className="min-h-screen bg-brand-cream text-brand-navy font-sans overflow-x-hidden">
 
-      {/* ── Header ── */}
-      <header className={`fixed w-full top-0 z-50 transition-[background-color,padding,box-shadow] duration-300 ${
-        scrolled
-          ? 'py-3 bg-white/[0.98] backdrop-blur-md shadow-[0_1px_0_rgba(10,22,40,0.06),0_4px_20px_rgba(10,22,40,0.06)]'
-          : 'py-5 bg-white/95 backdrop-blur-sm'
-      }`}>
-        <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
-          <motion.div
-            className="flex items-center"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}>
-            <img
-              src="/new-GPP.svg"
-              alt="Guided Peak Potential"
-              className={`transition-[height] duration-300 ${scrolled ? 'h-10' : 'h-12'} w-auto object-contain`}
-            />
-          </motion.div>
-
-          <nav className="hidden md:flex items-center space-x-10">
-            {['About', 'Services', 'Contact'].map((item, i) => {
-              const isAbout = item === 'About';
-              const isContact = item === 'Contact';
-
-              if (isAbout) {
-                return (
-                  <MotionLink
-                    key={item}
-                    to="/about"
-                    className="text-brand-navy/55 hover:text-brand-navy text-[11px] font-medium tracking-[0.18em] uppercase transition-[color] duration-200"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 + 0.2 }}
-                  >
-                    About
-                  </MotionLink>
-                );
-              } else if (isContact) {
-                return (
-                  <MotionLink
-                    key={item}
-                    to="/contact"
-                    className="text-brand-navy/55 hover:text-brand-navy text-[11px] font-medium tracking-[0.18em] uppercase transition-[color] duration-200"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 + 0.2 }}
-                  >
-                    Contact
-                  </MotionLink>
-                );
-              } else {
-                return (
-                  <motion.a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
-                    className="text-brand-navy/55 hover:text-brand-navy text-[11px] font-medium tracking-[0.18em] uppercase transition-[color] duration-200"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 + 0.2 }}
-                  >
-                    {item}
-                  </motion.a>
-                );
-              }
-            })}
-
-            <motion.a
-              href="/contact"
-              className="ml-4 px-7 py-2.5 bg-brand-blue text-white text-[11px] font-medium tracking-[0.18em] uppercase rounded-sm hover:bg-brand-navy transition-[background-color] duration-200"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5 }}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Book Consultation
-            </motion.a>
-          </nav>
-        </div>
-      </header>
+      <Header currentPage="home" initialDark={true} />
 
       {/* ── Hero ── */}
-      <section
-        className="relative flex flex-col items-center justify-center min-h-screen px-6 pt-20 bg-cover bg-center"
-        style={{ backgroundImage: "url('/Header.png')" }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/55 via-brand-navy/35 to-brand-navy/65"></div>
-
-        <div className="relative z-10 max-w-5xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <p className="text-brand-gold text-[10px] tracking-[0.4em] uppercase font-medium mb-10">
-              Guided Peak Potential
-            </p>
-
-            <h1 className="font-serif text-5xl md:text-7xl font-light text-white leading-[1.05] tracking-tight">
-              Reclaim Your Path
-              <span className="block font-serif text-6xl md:text-8xl font-extralight italic text-white/80 mt-2">
-                Redefine Your Peak
-              </span>
-            </h1>
-
-            <div className="w-16 h-px bg-brand-gold mx-auto my-10"></div>
-
-            <p className="text-lg md:text-xl text-white/70 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
-              Transform your life through personalized coaching that honors your unique journey
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.a
-                href="/contact"
-                className="px-10 py-4 bg-brand-gold text-brand-navy rounded-sm font-medium text-[11px] tracking-[0.22em] uppercase hover:bg-[#b8963e] transition-[background-color] duration-200"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Begin Your Journey
-              </motion.a>
-
-              <motion.a
-                href="#services"
-                className="px-10 py-4 bg-transparent text-white border border-white/35 rounded-sm font-medium text-[11px] tracking-[0.22em] uppercase hover:bg-white/10 transition-[background-color] duration-200"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Explore Services
-              </motion.a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <ScrollExpandMedia
+        mediaType="video"
+        mediaSrc="/Burt-sun.mp4"
+        bgImageSrc="/beautiful-mtn.jpg"
+        title="Reclaim Your Peak"
+        date="Guided Peak Potential"
+        scrollToExpand="Scroll to expand"
+        videoLabel="Work With"
+        videoName="Constance Bellisari"
+      />
 
       {/* ── Core Pillars ── */}
-      <section className="py-28 px-6 bg-brand-cream">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-brand-gold text-[10px] tracking-[0.4em] uppercase font-medium mb-5">The Foundation</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-light text-brand-navy">
-              Your Path to Transformation
-            </h2>
-            <div className="w-12 h-px bg-brand-gold mx-auto mt-8"></div>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {pillars.map((pillar, i) => (
-              <motion.div
-                key={i}
-                className="bg-white rounded-sm p-8 shadow-[0_2px_4px_rgba(10,22,40,0.05),0_8px_28px_rgba(10,22,40,0.06)] hover:shadow-[0_4px_8px_rgba(26,79,214,0.07),0_16px_44px_rgba(26,79,214,0.11)] border border-brand-border transition-[transform,box-shadow] duration-300"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                whileHover={{ y: -6 }}
-              >
-                <span className="font-serif text-3xl text-brand-gold font-light block mb-6">{pillar.num}</span>
-                <div className="text-brand-blue mb-5 w-[22px] h-[22px]">
-                  {pillar.icon}
-                </div>
-                <h3 className="font-serif text-xl font-medium text-brand-navy mb-1">
-                  {pillar.title}
-                </h3>
-                <p className="text-[10px] text-brand-muted tracking-[0.18em] uppercase mb-5">{pillar.subtitle}</p>
-                <div className="w-8 h-px bg-brand-gold mb-5"></div>
-                <p className="text-brand-navy/60 leading-relaxed text-sm">
-                  {pillar.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <CategoryList
+        categories={pillars.map((p) => ({
+          id: p.num,
+          title: p.title,
+          subtitle: p.description,
+          icon: <div className="w-6 h-6">{p.icon}</div>,
+          featured: p.num === '01',
+        }))}
+        className="pt-20 pb-24"
+      />
 
       {/* ── Meet Constance ── */}
       <section className="py-28 px-6 bg-white">
@@ -610,216 +447,15 @@ export default function CentralPointPartnersWebsite() {
         </div>
       </section>
 
-      {/* ── Pricing ── */}
-      <section className="py-28 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-brand-gold text-[10px] tracking-[0.4em] uppercase font-medium mb-5">Investment</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-light text-brand-navy">
-              Transform Your <span className="italic">Inner World</span>
-            </h2>
-            <div className="w-12 h-px bg-brand-gold mx-auto mt-8 mb-8"></div>
-            <p className="text-base text-brand-navy/55 max-w-xl mx-auto mb-10">
-              Choose the path that resonates with your journey toward healing and self-discovery
-            </p>
-
-            <motion.div
-              className="inline-flex items-center bg-brand-cream border border-brand-border rounded-sm px-8 py-4"
-              whileHover={{ scale: 1.01 }}
-            >
-              <div className="w-1.5 h-1.5 bg-brand-gold rounded-full mr-3"></div>
-              <Link to="/contact" className="text-brand-navy/65 text-sm">
-                Start with a <span className="text-brand-blue font-semibold">free 15-minute</span> discovery call
-              </Link>
-              <svg className="w-4 h-4 ml-3 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-              </svg>
-            </motion.div>
-          </motion.div>
-
-          <div className="grid lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-
-            {/* Quick Connect */}
-            <motion.div
-              className="bg-brand-cream rounded-sm p-8 shadow-[0_2px_4px_rgba(10,22,40,0.05),0_8px_28px_rgba(10,22,40,0.06)] border border-brand-border"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              whileHover={{ y: -5 }}
-            >
-              <p className="text-[10px] text-brand-muted tracking-[0.18em] uppercase mb-2">Starter</p>
-              <h3 className="font-serif text-2xl font-light text-brand-navy mb-1">Quick Connect</h3>
-              <p className="text-brand-muted text-xs mb-8">Perfect for focused check-ins</p>
-
-              <div className="flex items-baseline mb-8">
-                <span className="font-serif text-5xl font-light text-brand-navy">$100</span>
-                <span className="ml-2 text-brand-muted text-sm">/ 30 min</span>
-              </div>
-
-              <div className="w-full h-px bg-brand-border mb-8"></div>
-
-              <div className="space-y-3">
-                {[
-                  "Focused session format",
-                  "Immediate support",
-                  "Flexible scheduling"
-                ].map((feature, i) => (
-                  <div key={i} className="flex items-center text-brand-navy/65">
-                    <div className="w-1 h-1 bg-brand-gold rounded-full mr-3 flex-shrink-0"></div>
-                    <span className="text-sm">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Commitment Package — Featured */}
-            <motion.div
-              className="bg-brand-navy rounded-sm p-8 shadow-[0_8px_16px_rgba(10,22,40,0.18),0_28px_64px_rgba(10,22,40,0.28)] relative"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              whileHover={{ y: -5 }}
-            >
-              {/* Gold top border */}
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-brand-gold rounded-t-sm"></div>
-
-              <div className="absolute -top-3.5 left-1/2 transform -translate-x-1/2">
-                <div className="bg-brand-gold text-brand-navy px-5 py-1.5 rounded-sm text-[10px] font-semibold tracking-[0.12em] uppercase">
-                  Most Popular
-                </div>
-              </div>
-
-              <div className="mb-6 pt-4">
-                <p className="text-[10px] text-white/35 tracking-[0.18em] uppercase mb-2">Best Value</p>
-                <h3 className="font-serif text-2xl font-light text-white mb-1">Commitment Package</h3>
-                <p className="text-white/45 text-xs">Sustained growth & transformation</p>
-              </div>
-
-              <div className="bg-white/[0.07] rounded-sm p-6 mb-6 border border-white/10">
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-white/75 text-sm">8 × 30min Sessions</span>
-                  <div className="bg-brand-gold/20 text-brand-gold px-3 py-1 rounded-sm text-[10px] font-semibold tracking-wide">
-                    Save $150
-                  </div>
-                </div>
-                <div className="font-serif text-5xl font-light text-white mb-1">$650</div>
-                <div className="text-white/35 text-xs">Only $81.25 per session</div>
-              </div>
-
-              <div className="space-y-3">
-                {[
-                  "Consistent therapeutic support",
-                  "Long-term progress tracking",
-                  "Personalized strategies",
-                  "Priority booking"
-                ].map((feature, i) => (
-                  <div key={i} className="flex items-center text-white/65">
-                    <div className="w-1 h-1 bg-brand-gold rounded-full mr-3 flex-shrink-0"></div>
-                    <span className="text-sm">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Extended Support */}
-            <motion.div
-              className="bg-brand-cream rounded-sm p-8 shadow-[0_2px_4px_rgba(10,22,40,0.05),0_8px_28px_rgba(10,22,40,0.06)] border border-brand-border"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              whileHover={{ y: -5 }}
-            >
-              <p className="text-[10px] text-brand-muted tracking-[0.18em] uppercase mb-2">Premium</p>
-              <h3 className="font-serif text-2xl font-light text-brand-navy mb-1">Extended Support</h3>
-              <p className="text-brand-muted text-xs mb-8">Comprehensive transformation journey</p>
-
-              <div className="bg-white rounded-sm p-6 mb-6 border border-brand-border">
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-brand-navy text-sm">12 × 30min Sessions</span>
-                  <div className="bg-brand-gold/15 text-brand-gold px-3 py-1 rounded-sm text-[10px] font-semibold tracking-wide">
-                    Save $300
-                  </div>
-                </div>
-                <div className="font-serif text-5xl font-light text-brand-navy mb-1">$900</div>
-                <div className="text-brand-muted text-xs">Only $75 per session</div>
-              </div>
-
-              <div className="w-full h-px bg-brand-border mb-6"></div>
-
-              <div className="space-y-3">
-                {[
-                  "Extended therapeutic journey",
-                  "Deep transformation work",
-                  "Ongoing resource library",
-                  "Priority support access"
-                ].map((feature, i) => (
-                  <div key={i} className="flex items-center text-brand-navy/65">
-                    <div className="w-1 h-1 bg-brand-gold rounded-full mr-3 flex-shrink-0"></div>
-                    <span className="text-sm">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-
-          <motion.div
-            className="text-center mt-16"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-          >
-            <p className="text-brand-navy/45 mb-6 max-w-xl mx-auto text-sm">
-              Every journey begins with a single step. Start with your complimentary 15-minute discovery call to find the perfect path forward.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center text-brand-blue hover:text-brand-navy font-medium text-sm transition-[color] duration-200"
-            >
-              <span className="mr-2">Ready to begin your transformation?</span>
-              <span className="underline underline-offset-4">Schedule your free consultation</span>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── Inspirational Quote ── */}
-      <section
-        className="relative flex items-center justify-center min-h-[60vh] px-6 bg-cover bg-center"
-        style={{ backgroundImage: "url('/Backdrop-pic.jpg')" }}
-      >
-        <div className="absolute inset-0 bg-brand-navy/58"></div>
-
-        <motion.div
-          className="relative z-10 max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-brand-gold text-[10px] tracking-[0.4em] uppercase font-medium mb-8">Words to Live By</p>
-          <blockquote className="font-serif text-3xl md:text-4xl font-light text-white mb-10 leading-relaxed italic">
-            "Your time is limited, so don't waste it living someone else's life."
-          </blockquote>
-          <div className="w-16 h-px bg-brand-gold mx-auto mb-6"></div>
-          <cite className="text-[11px] text-white/50 not-italic tracking-[0.2em] uppercase">Steve Jobs</cite>
-        </motion.div>
-      </section>
-
       {/* ── Footer ── */}
       <footer className="bg-brand-navy py-12 px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="w-8 h-px bg-brand-gold mx-auto mb-6"></div>
-          <p className="text-white/35 text-[11px] tracking-[0.12em]">
+        <div className="max-w-3xl mx-auto text-center space-y-4">
+          <p className="font-serif text-base text-white/40 italic">
+            "Your time is limited, so don't waste it living someone else's life."
+          </p>
+          <p className="text-white/25 text-[10px] tracking-[0.25em] uppercase">Steve Jobs</p>
+          <div className="w-8 h-px bg-brand-gold/40 mx-auto !mt-6"></div>
+          <p className="text-white/25 text-[11px] tracking-[0.12em] !mt-4">
             © {new Date().getFullYear()} Guided Peak Potential. Nurturing transformation with gentle wisdom.
           </p>
         </div>
