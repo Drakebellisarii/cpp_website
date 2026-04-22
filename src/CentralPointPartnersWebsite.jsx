@@ -4,6 +4,8 @@ import { Analytics } from "@vercel/analytics/react"
 import ScrollExpandMedia from './components/ui/scroll-expansion-hero';
 import Header from './components/Header';
 import { CategoryList } from './components/ui/category-list';
+import ProceduralGroundBackground from './components/ui/animated-pattern-cloud';
+import { GlowCard } from './components/ui/spotlight-card';
 
 export default function CentralPointPartnersWebsite() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -135,7 +137,9 @@ export default function CentralPointPartnersWebsite() {
       <Header currentPage="home" initialDark={true} />
 
       {/* ── Hero ── */}
-      <ScrollExpandMedia
+      <div className="relative overflow-hidden">
+        <ProceduralGroundBackground />
+        <ScrollExpandMedia
         mediaType="video"
         mediaSrc="/Burt-sun.mp4"
         bgImageSrc="/beautiful-mtn.jpg"
@@ -145,228 +149,263 @@ export default function CentralPointPartnersWebsite() {
         videoLabel="Work With"
         videoName="Constance Bellisari"
       />
+      </div>
 
-      {/* ── Core Pillars ── */}
-      <CategoryList
-        categories={pillars.map((p) => ({
-          id: p.num,
-          title: p.title,
-          subtitle: p.description,
-          icon: <div className="w-6 h-6">{p.icon}</div>,
-          featured: p.num === '01',
-        }))}
-        className="pt-20 pb-24"
-      />
+      {/* ── Core Pillars + Meet Constance — single shared background ── */}
+      <div className="relative overflow-hidden bg-brand-cream">
+        <ProceduralGroundBackground />
 
-      {/* ── Meet Constance ── */}
-      <section className="py-28 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-12 gap-16 items-center">
+        {/* ── Core Pillars ── */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 pt-12 sm:pt-20 pb-14 sm:pb-24">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {pillars.map((pillar, i) => (
+              <motion.div
+                key={pillar.num}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+              >
+                <GlowCard
+                  glowColor="blue"
+                  customSize
+                  className="w-full p-5 sm:p-8 min-h-[260px] sm:min-h-[320px]"
+                >
+                  <div className="flex flex-col h-full">
+                    <span className="font-serif text-4xl text-brand-gold/30 font-light leading-none mb-5">
+                      {pillar.num}
+                    </span>
+                    <div className="text-brand-blue mb-4 w-[22px] h-[22px]">
+                      {pillar.icon}
+                    </div>
+                    <h3 className="font-serif text-lg font-medium text-brand-navy mb-1">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-[10px] text-brand-muted tracking-[0.18em] uppercase mb-4">
+                      {pillar.subtitle}
+                    </p>
+                    <div className="w-8 h-px bg-brand-gold mb-4"></div>
+                    <p className="text-brand-navy/60 text-sm leading-relaxed mt-auto">
+                      {pillar.description}
+                    </p>
+                  </div>
+                </GlowCard>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
+        {/* ── Meet Constance ── */}
+        <section className="relative z-10 py-12 md:py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+
+            {/* Photo — controlled portrait frame */}
             <motion.div
-              className="lg:col-span-5"
-              initial={{ opacity: 0, x: -50 }}
+              className="lg:col-span-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="overflow-hidden h-[340px] sm:h-[440px] lg:h-[540px] shadow-[0_4px_8px_rgba(10,22,40,0.08),0_20px_56px_rgba(10,22,40,0.13)]">
+                <img
+                  src="/Connie-headshot.JPG"
+                  alt="Constance Bellisari"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              {/* Caption strip below photo */}
+              <div className="mt-5 flex items-start space-x-3">
+                <div className="w-6 h-px bg-brand-gold mt-2.5 flex-shrink-0"></div>
+                <div>
+                  <p className="text-[10px] text-brand-muted tracking-[0.22em] uppercase">Certified Life Coach</p>
+                  <p className="font-serif text-lg text-brand-navy italic mt-0.5">Constance Bellisari</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Content */}
+            <motion.div
+              className="lg:col-span-8 lg:pt-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-center space-x-3 mb-7">
+                <div className="w-8 h-px bg-brand-gold"></div>
+                <span className="text-[10px] tracking-[0.35em] text-brand-gold font-medium uppercase">Strategy Consultant</span>
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-4xl font-light text-brand-navy/35 mb-1 leading-none">Work With</h2>
+              <h3 className="font-serif text-4xl sm:text-5xl text-brand-blue font-normal mb-8 leading-tight">Constance Bellisari</h3>
+
+              <div className="w-full h-px bg-brand-border mb-8"></div>
+
+              <p className="text-base text-brand-navy/65 leading-relaxed mb-8">
+                Business coaching is strategy focused. Each session together is your time
+                to focus on your business vision and growth path. Create a business strategy
+                that aligns with your strengths, values, and market opportunities.
+              </p>
+
+              <h4 className="font-serif text-xl font-medium text-brand-navy mb-3">My Promise to You</h4>
+              <div className="w-10 h-px bg-brand-gold mb-6"></div>
+
+              <div className="grid sm:grid-cols-2 gap-x-10 gap-y-4 mb-10">
+                {[
+                  "Strategic questioning to find new opportunities and innovative solutions",
+                  "Listen and give you space to strategize, reflect, and plan",
+                  "Guide you to recognize and move past limiting beliefs slowing your progress",
+                  "Challenge you to think beyond what you thought was possible"
+                ].map((promise, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <div className="w-px h-5 bg-brand-gold flex-shrink-0 mt-1"></div>
+                    <p className="text-brand-navy/65 text-sm leading-relaxed">{promise}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="border-l-2 border-brand-gold pl-6 bg-white py-5 pr-6 mb-7">
+                <p className="text-brand-navy/65 text-sm leading-relaxed mb-3">
+                  I will be your strategic partner, sounding board, and someone that will help you hold yourself accountable.
+                </p>
+                <p className="font-serif text-lg italic text-brand-blue">
+                  "Let's work together to move toward a business where you are truly living your entrepreneurial vision."
+                </p>
+              </div>
+
+              <div className="text-right">
+                <p className="font-serif text-xl text-brand-blue font-light italic">I believe in you...</p>
+                <div className="w-14 h-px bg-brand-gold ml-auto mt-3"></div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+        </section>
+      </div>{/* end shared background */}
+
+      {/* ── Philosophy ── */}
+      <section className="relative min-h-[60vh] md:min-h-[85vh] flex items-center overflow-hidden">
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/whale.jpg')" }}
+        ></div>
+        {/* Gradient — heavy left for heading legibility, open right so glass effect pops */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/90 via-brand-navy/55 to-brand-navy/25"></div>
+
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-8 py-14 md:py-28">
+          <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
+
+            {/* Left: large heading */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="relative">
-                <div className="absolute -top-3 -left-3 w-full h-full border border-brand-blue/25 -z-10"></div>
-                <div className="relative overflow-hidden bg-brand-cream shadow-[0_4px_8px_rgba(10,22,40,0.08),0_20px_50px_rgba(10,22,40,0.12)]">
-                  <img
-                    src="/Connie-headshot.JPG"
-                    alt="Constance Bellisari"
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-gold"></div>
-                </div>
-                <motion.div
-                  className="absolute -bottom-5 -right-5 bg-white shadow-[0_4px_8px_rgba(10,22,40,0.10),0_12px_30px_rgba(10,22,40,0.08)] px-6 py-4 border-l-2 border-brand-gold"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  viewport={{ once: true }}
-                >
-                  <p className="text-[10px] text-brand-muted tracking-[0.2em] uppercase">Certified Life Coach</p>
-                  <p className="font-serif text-lg text-brand-navy italic mt-1">Constance Bellisari</p>
-                </motion.div>
-              </div>
+              <p className="text-brand-gold text-[10px] tracking-[0.4em] uppercase font-medium mb-8">Our Approach</p>
+              <h3 className="font-serif text-4xl sm:text-6xl md:text-7xl font-light text-white italic leading-[1.05]">
+                My<br />Philosophy
+              </h3>
+              <div className="w-14 h-px bg-brand-gold mt-10"></div>
             </motion.div>
 
+            {/* Right: glassmorphism panel */}
             <motion.div
-              className="lg:col-span-7"
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="space-y-8">
-                <div>
-                  <div className="flex items-center space-x-3 mb-6">
-                    <div className="w-10 h-px bg-brand-gold"></div>
-                    <span className="text-[10px] tracking-[0.35em] text-brand-gold font-medium uppercase">Strategy Consultant</span>
-                  </div>
-
-                  <h2 className="font-serif text-4xl md:text-5xl font-light text-brand-navy mb-2">
-                    Work With
-                  </h2>
-                  <h3 className="font-serif text-5xl md:text-6xl text-brand-blue font-normal mb-8">
-                    Constance Bellisari
-                  </h3>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="w-16 h-px bg-brand-border"></div>
-                  <p className="text-base text-brand-navy/65 leading-relaxed">
-                    Business coaching is strategy focused. Each session together is your time
-                    to focus on your business vision and growth path. Create a business strategy
-                    that aligns with your strengths, values, and market opportunities.
-                  </p>
-                </div>
-
-                <div className="space-y-5 pt-2">
-                  <h4 className="font-serif text-xl font-medium text-brand-navy">
-                    My Promise to You
-                  </h4>
-                  <div className="w-12 h-px bg-brand-gold"></div>
-                  <div className="space-y-4">
-                    {[
-                      "Strategic questioning to find new opportunities and innovative solutions",
-                      "Listen and give you space to strategize, reflect, and plan",
-                      "Guide you to recognize and move past limiting beliefs slowing your progress",
-                      "Challenge you to think beyond what you thought was possible"
-                    ].map((promise, index) => (
-                      <div key={index} className="flex items-start space-x-4">
-                        <div className="w-px h-5 bg-brand-gold flex-shrink-0 mt-1"></div>
-                        <p className="text-brand-navy/65 leading-relaxed text-sm">{promise}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="bg-brand-cream p-8 border-l-2 border-brand-gold">
-                  <p className="text-brand-navy/70 leading-relaxed mb-4 text-sm">
-                    I will be your strategic partner, sounding board, and someone that will help you hold yourself accountable.
-                  </p>
-                  <p className="font-serif text-lg italic text-brand-blue">
-                    "Let's work together to move toward a business where you are truly living your entrepreneurial vision."
-                  </p>
-                </div>
-
-                <div className="text-right pt-2">
-                  <p className="font-serif text-xl text-brand-blue font-light italic">I believe in you...</p>
-                  <div className="w-20 h-px bg-brand-gold ml-auto mt-3"></div>
-                </div>
+              <div className="bg-brand-navy/[0.55] backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_rgba(10,22,40,0.3)] p-5 sm:p-8 lg:p-10">
+                <p className="text-white text-sm leading-loose pb-7 border-b border-white/15">
+                  The summit calls, not because it promises ease, but because it promises you. Every great peak scaled begins with a single step into the unknown, where courage meets possibility and dreams transform into destiny. At Guided Peak Potential, we don't just guide you up the mountain—we awaken the climber within you, the one who has always known that your greatest adventures lie beyond your comfort zone.
+                </p>
+                <p className="text-white text-sm leading-loose py-7 border-b border-white/15">
+                  This isn't about reaching someone else's definition of success. This is about discovering the breathtaking view that can only be seen from your own personal summit. Every challenge you face becomes a stepping stone, every setback a lesson in resilience, every breakthrough a celebration of your expanding potential.
+                </p>
+                <p className="text-white text-sm leading-loose pt-7">
+                  Your mountain is waiting. Not just the destination, but the magnificent journey of becoming who you were always meant to be. Together, we'll turn your potential into your reality, one intentional step at a time.
+                </p>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ── Philosophy ── */}
-      <section
-        className="relative flex items-center justify-center min-h-[80vh] px-6 bg-cover bg-center"
-        style={{ backgroundImage: "url('/whale.jpg')" }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/50 via-brand-navy/35 to-brand-navy/55"></div>
-
-        <motion.div
-          className="relative z-10 max-w-4xl text-center"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-brand-gold text-[10px] tracking-[0.4em] uppercase font-medium mb-6">Our Approach</p>
-          <h3 className="font-serif text-4xl md:text-5xl font-light mb-10 text-white italic">
-            My Philosophy
-          </h3>
-          <div className="bg-white/[0.97] backdrop-blur-md p-10 md:p-14 rounded-sm shadow-[0_8px_16px_rgba(10,22,40,0.15),0_32px_80px_rgba(10,22,40,0.22)]">
-            <p className="text-sm text-brand-navy/75 leading-loose text-left">
-              <span className="block">
-                The summit calls, not because it promises ease, but because it promises you. Every great peak scaled begins with a single step into the unknown, where courage meets possibility and dreams transform into destiny. At Guided Peak Potential, we don't just guide you up the mountain—we awaken the climber within you, the one who has always known that your greatest adventures lie beyond your comfort zone.
-              </span>
-              <span className="block mt-5">
-                This isn't about reaching someone else's definition of success. This is about discovering the breathtaking view that can only be seen from your own personal summit. Every challenge you face becomes a stepping stone, every setback a lesson in resilience, every breakthrough a celebration of your expanding potential.
-              </span>
-              <span className="block mt-5">
-                Your mountain is waiting. Not just the destination, but the magnificent journey of becoming who you were always meant to be. Together, we'll turn your potential into your reality, one intentional step at a time.
-              </span>
-            </p>
-          </div>
-        </motion.div>
-      </section>
-
       {/* ── Services ── */}
-      <section id="services" className="py-28 px-6 bg-brand-cream">
-        <div className="max-w-7xl mx-auto">
+      <section id="services" className="py-16 md:py-28 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-8">
+
+          {/* Header row */}
           <motion.div
-            className="text-center mb-20"
+            className="flex items-end justify-between pb-8 md:pb-12 border-b border-brand-border"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-brand-gold text-[10px] tracking-[0.4em] uppercase font-medium mb-5">What We Offer</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-light text-brand-navy">
-              Pathways to <span className="italic">Growth</span>
-            </h2>
-            <div className="w-12 h-px bg-brand-gold mx-auto mt-8 mb-8"></div>
-            <p className="text-base text-brand-navy/55 max-w-2xl mx-auto">
-              Discover transformative approaches designed to meet you exactly where you are on your journey
-            </p>
+            <div>
+              <p className="text-brand-gold text-[10px] tracking-[0.4em] uppercase font-medium mb-4">What We Offer</p>
+              <h2 className="font-serif text-4xl md:text-5xl font-light text-brand-navy">
+                Pathways to <span className="italic">Growth</span>
+              </h2>
+            </div>
+            <p className="text-brand-navy/20 font-serif text-sm tracking-widest hidden lg:block pb-1">02 Services</p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-sm p-10 shadow-[0_2px_4px_rgba(10,22,40,0.05),0_8px_28px_rgba(10,22,40,0.07)] hover:shadow-[0_4px_8px_rgba(26,79,214,0.07),0_16px_44px_rgba(26,79,214,0.11)] border border-brand-border transition-[transform,box-shadow] duration-300"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2, duration: 0.6 }}
-                whileHover={{ y: -6 }}
-              >
-                <div className="flex items-start space-x-4 mb-4">
-                  <div className="w-10 h-10 text-brand-blue flex-shrink-0">
-                    {service.icon}
+          {/* Service rows */}
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              className="grid lg:grid-cols-12 gap-6 lg:gap-8 py-10 md:py-16 border-b border-brand-border last:border-0 group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.15, duration: 0.6 }}
+            >
+              {/* Number + Icon + Title */}
+              <div className="lg:col-span-4">
+                <span className="font-serif text-7xl md:text-8xl font-light text-brand-gold/12 block leading-none mb-3 select-none">
+                  0{index + 1}
+                </span>
+                <div className="text-brand-blue w-6 h-6 mb-4">{service.icon}</div>
+                <h3 className="font-serif text-2xl font-light text-brand-navy group-hover:text-brand-blue transition-[color] duration-300">
+                  {service.title}
+                </h3>
+              </div>
+
+              {/* Description */}
+              <div className="lg:col-span-5 lg:pt-14">
+                <p className="text-brand-navy/60 text-sm leading-loose">{service.desc}</p>
+              </div>
+
+              {/* Features */}
+              <div className="lg:col-span-3 lg:pt-14 space-y-3">
+                {service.features.map((feature, idx) => (
+                  <div key={idx} className="flex items-center">
+                    <div className="w-1 h-1 bg-brand-gold rounded-full mr-3 flex-shrink-0"></div>
+                    <span className="text-xs text-brand-navy/55 tracking-wide">{feature}</span>
                   </div>
-                  <h3 className="font-serif text-3xl font-light text-brand-navy">
-                    {service.title}
-                  </h3>
-                </div>
-
-                <div className="w-10 h-px bg-brand-gold mb-6"></div>
-
-                <p className="text-brand-navy/60 leading-relaxed mb-8 text-sm">
-                  {service.desc}
-                </p>
-
-                <div className="grid grid-cols-2 gap-3">
-                  {service.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center text-brand-navy/65">
-                      <div className="w-1 h-1 bg-brand-gold rounded-full mr-3 flex-shrink-0"></div>
-                      <span className="text-sm">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
       {/* ── Testimonials ── */}
       <section
-        className="relative py-28 px-6 bg-cover bg-center"
+        className="relative py-16 md:py-28 px-4 md:px-6 bg-cover bg-center"
         style={{ backgroundImage: "url('/bears.png')" }}
       >
         <div className="absolute inset-0 bg-brand-navy/72"></div>
 
         <div className="relative z-10 max-w-6xl mx-auto">
           <motion.div
-            className="text-center mb-20"
+            className="text-center mb-10 md:mb-20"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -380,7 +419,7 @@ export default function CentralPointPartnersWebsite() {
           </motion.div>
 
           <div className="relative">
-            <div className="flex items-center justify-center min-h-[280px]">
+            <div className="flex items-center justify-center min-h-[220px] md:min-h-[280px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentTestimonial}
@@ -390,8 +429,8 @@ export default function CentralPointPartnersWebsite() {
                   transition={{ duration: 0.4 }}
                   className="max-w-4xl mx-auto px-4"
                 >
-                  <div className="bg-white/[0.97] backdrop-blur-sm rounded-sm p-12 shadow-[0_8px_16px_rgba(10,22,40,0.18),0_32px_80px_rgba(10,22,40,0.28)]">
-                    <blockquote className="font-serif text-xl md:text-2xl text-brand-navy mb-8 leading-relaxed italic">
+                  <div className="bg-white/[0.97] backdrop-blur-sm rounded-sm p-5 sm:p-8 md:p-12 shadow-[0_8px_16px_rgba(10,22,40,0.18),0_32px_80px_rgba(10,22,40,0.28)]">
+                    <blockquote className="font-serif text-base sm:text-xl md:text-2xl text-brand-navy mb-5 md:mb-8 leading-relaxed italic">
                       "{testimonials[currentTestimonial].quote}"
                     </blockquote>
                     <div className="border-t border-brand-border pt-6 flex items-center justify-between">
