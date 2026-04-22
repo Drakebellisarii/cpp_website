@@ -26,9 +26,8 @@ const ScrollExpandMedia = ({
   const [isMobileState, setIsMobileState] = useState(false);
 
   const sectionRef = useRef(null);
-  // Sync ref so event handlers always read the live value without stale closure bugs
+  // Sync ref so handleScroll always reads the live expanded value, not a stale closure
   const expandedRef = useRef(false);
-  const isMobileRef = useRef(false);
 
   useEffect(() => {
     setScrollProgress(0);
@@ -53,7 +52,6 @@ const ScrollExpandMedia = ({
 
   useEffect(() => {
     const handleWheel = (e) => {
-      if (isMobileRef.current) return;
       if (mediaFullyExpanded && e.deltaY < 0 && window.scrollY <= 5) {
         expandedRef.current = false;
         setMediaFullyExpanded(false);
@@ -75,12 +73,10 @@ const ScrollExpandMedia = ({
     };
 
     const handleTouchStart = (e) => {
-      if (isMobileRef.current) return;
       setTouchStartY(e.touches[0].clientY);
     };
 
     const handleTouchMove = (e) => {
-      if (isMobileRef.current) return;
       if (!touchStartY) return;
 
       const touchY = e.touches[0].clientY;
@@ -110,7 +106,6 @@ const ScrollExpandMedia = ({
     };
 
     const handleTouchEnd = () => {
-      if (isMobileRef.current) return;
       setTouchStartY(0);
     };
 
@@ -138,9 +133,7 @@ const ScrollExpandMedia = ({
 
   useEffect(() => {
     const checkIfMobile = () => {
-      const mobile = window.innerWidth < 768;
-      isMobileRef.current = mobile;
-      setIsMobileState(mobile);
+      setIsMobileState(window.innerWidth < 768);
     };
 
     checkIfMobile();
@@ -148,16 +141,6 @@ const ScrollExpandMedia = ({
 
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
-
-  // On mobile, skip the scroll-expansion animation — jump straight to fully expanded
-  useEffect(() => {
-    if (isMobileState) {
-      expandedRef.current = true;
-      setScrollProgress(1);
-      setMediaFullyExpanded(true);
-      setShowContent(true);
-    }
-  }, [isMobileState]);
 
   // Video starts hidden, fades in quickly once scrolling begins
   const videoOpacity = Math.min(scrollProgress * 3.5, 1);

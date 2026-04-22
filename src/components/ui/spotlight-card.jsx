@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const glowColorMap = {
   blue:   { base: 220, spread: 0 },
@@ -24,8 +24,14 @@ const GlowCard = ({
   customSize = false,
 }) => {
   const cardRef = useRef(null);
+  const [isTouch, setIsTouch] = useState(false);
 
   useEffect(() => {
+    setIsTouch(window.matchMedia('(hover: none)').matches);
+  }, []);
+
+  useEffect(() => {
+    if (isTouch) return;
     const syncPointer = (e) => {
       const { clientX: x, clientY: y } = e;
       if (cardRef.current) {
@@ -37,14 +43,31 @@ const GlowCard = ({
     };
     document.addEventListener('pointermove', syncPointer);
     return () => document.removeEventListener('pointermove', syncPointer);
-  }, []);
-
-  const { base, spread } = glowColorMap[glowColor];
+  }, [isTouch]);
 
   const getSizeClasses = () => {
     if (customSize) return '';
     return sizeMap[size];
   };
+
+  // Touch devices: plain frosted card, no glow machinery
+  if (isTouch) {
+    const inlineStyle = {};
+    if (width !== undefined)  inlineStyle.width  = typeof width  === 'number' ? `${width}px`  : width;
+    if (height !== undefined) inlineStyle.height = typeof height === 'number' ? `${height}px` : height;
+
+    return (
+      <div
+        style={inlineStyle}
+        className={`${getSizeClasses()} rounded-lg relative flex flex-col bg-white/80 border border-brand-border/60 shadow-[0_4px_24px_-4px_rgba(10,22,40,0.08)] ${className}`}
+      >
+        {children}
+      </div>
+    );
+  }
+
+  // Desktop: full spotlight glow card
+  const { base, spread } = glowColorMap[glowColor];
 
   const getInlineStyles = () => {
     const s = {
