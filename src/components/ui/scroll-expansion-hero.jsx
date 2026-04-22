@@ -5,6 +5,7 @@ import {
 } from 'react';
 import { motion } from 'framer-motion';
 
+
 const ScrollExpandMedia = ({
   mediaType = 'video',
   mediaSrc,
@@ -25,6 +26,9 @@ const ScrollExpandMedia = ({
   const [isMobileState, setIsMobileState] = useState(false);
 
   const sectionRef = useRef(null);
+  // Sync ref so event handlers always read the live value without stale closure bugs
+  const expandedRef = useRef(false);
+  const isMobileRef = useRef(false);
 
   useEffect(() => {
     setScrollProgress(0);
@@ -49,7 +53,9 @@ const ScrollExpandMedia = ({
 
   useEffect(() => {
     const handleWheel = (e) => {
+      if (isMobileRef.current) return;
       if (mediaFullyExpanded && e.deltaY < 0 && window.scrollY <= 5) {
+        expandedRef.current = false;
         setMediaFullyExpanded(false);
         e.preventDefault();
       } else if (!mediaFullyExpanded) {
@@ -59,6 +65,7 @@ const ScrollExpandMedia = ({
         setScrollProgress(newProgress);
 
         if (newProgress >= 1) {
+          expandedRef.current = true;
           setMediaFullyExpanded(true);
           setShowContent(true);
         } else if (newProgress < 0.75) {
@@ -68,16 +75,19 @@ const ScrollExpandMedia = ({
     };
 
     const handleTouchStart = (e) => {
+      if (isMobileRef.current) return;
       setTouchStartY(e.touches[0].clientY);
     };
 
     const handleTouchMove = (e) => {
+      if (isMobileRef.current) return;
       if (!touchStartY) return;
 
       const touchY = e.touches[0].clientY;
       const deltaY = touchStartY - touchY;
 
       if (mediaFullyExpanded && deltaY < -20 && window.scrollY <= 5) {
+        expandedRef.current = false;
         setMediaFullyExpanded(false);
         e.preventDefault();
       } else if (!mediaFullyExpanded) {
@@ -88,6 +98,7 @@ const ScrollExpandMedia = ({
         setScrollProgress(newProgress);
 
         if (newProgress >= 1) {
+          expandedRef.current = true;
           setMediaFullyExpanded(true);
           setShowContent(true);
         } else if (newProgress < 0.75) {
@@ -99,11 +110,13 @@ const ScrollExpandMedia = ({
     };
 
     const handleTouchEnd = () => {
+      if (isMobileRef.current) return;
       setTouchStartY(0);
     };
 
+    // Use the sync ref — never a stale closure value
     const handleScroll = () => {
-      if (!mediaFullyExpanded && !window.location.hash) {
+      if (!expandedRef.current && !window.location.hash) {
         window.scrollTo(0, 0);
       }
     };
@@ -125,7 +138,9 @@ const ScrollExpandMedia = ({
 
   useEffect(() => {
     const checkIfMobile = () => {
-      setIsMobileState(window.innerWidth < 768);
+      const mobile = window.innerWidth < 768;
+      isMobileRef.current = mobile;
+      setIsMobileState(mobile);
     };
 
     checkIfMobile();
@@ -133,6 +148,16 @@ const ScrollExpandMedia = ({
 
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
+
+  // On mobile, skip the scroll-expansion animation — jump straight to fully expanded
+  useEffect(() => {
+    if (isMobileState) {
+      expandedRef.current = true;
+      setScrollProgress(1);
+      setMediaFullyExpanded(true);
+      setShowContent(true);
+    }
+  }, [isMobileState]);
 
   // Video starts hidden, fades in quickly once scrolling begins
   const videoOpacity = Math.min(scrollProgress * 3.5, 1);

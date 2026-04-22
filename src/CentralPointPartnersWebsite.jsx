@@ -205,16 +205,18 @@ export default function CentralPointPartnersWebsite() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="overflow-hidden h-[460px] sm:h-[460px] lg:h-[540px] shadow-[0_4px_8px_rgba(10,22,40,0.08),0_20px_56px_rgba(10,22,40,0.13)]">
+              <div className="flex justify-center lg:block">
+              <div className="w-[260px] sm:w-[300px] lg:w-full overflow-hidden lg:h-[540px] shadow-[0_4px_8px_rgba(10,22,40,0.08),0_20px_56px_rgba(10,22,40,0.13)]">
                 <img
                   src="/Connie-headshot.JPG"
                   alt="Constance Bellisari"
-                  className="w-full h-full object-cover object-[center_8%]"
+                  className="w-full h-auto lg:h-full lg:object-cover lg:object-[center_8%]"
                 />
               </div>
+              </div>
               {/* Caption strip below photo */}
-              <div className="mt-5 flex items-start space-x-3">
-                <div className="w-6 h-px bg-brand-gold mt-2.5 flex-shrink-0"></div>
+              <div className="mt-5 flex items-center justify-center lg:justify-start space-x-3">
+                <div className="w-6 h-px bg-brand-gold flex-shrink-0"></div>
                 <div>
                   <p className="text-[10px] text-brand-muted tracking-[0.22em] uppercase">Certified Life Coach</p>
                   <p className="font-serif text-lg text-brand-navy italic mt-0.5">Constance Bellisari</p>

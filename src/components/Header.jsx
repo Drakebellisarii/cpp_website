@@ -49,8 +49,8 @@ export default function Header({ currentPage = '', initialDark = true }) {
         {/* Divider */}
         <div className={`w-px h-4 flex-shrink-0 transition-colors duration-500 ${scrolled ? 'bg-brand-navy/15' : 'bg-white/25'}`} />
 
-        {/* Nav — always visible, tighter on mobile */}
-        <nav className="flex items-center px-1 md:px-2">
+        {/* Nav — always visible, centered between logo and CTA */}
+        <nav className="flex-1 flex items-center justify-center px-1 md:px-2">
           {navItems.map(({ label, to, href, isLink }) => {
             const isActive = currentPage === label.toLowerCase();
             const baseClass = `px-2 md:px-4 py-2 text-[9px] md:text-[10px] font-medium tracking-[0.12em] md:tracking-[0.18em] uppercase transition-colors duration-300 rounded-full hover:bg-white/10`;
