@@ -4,7 +4,6 @@ import { Analytics } from "@vercel/analytics/react"
 import ScrollExpandMedia from './components/ui/scroll-expansion-hero';
 import Header from './components/Header';
 import { CategoryList } from './components/ui/category-list';
-import ProceduralGroundBackground from './components/ui/animated-pattern-cloud';
 import { GlowCard } from './components/ui/spotlight-card';
 
 export default function CentralPointPartnersWebsite() {
@@ -138,7 +137,6 @@ export default function CentralPointPartnersWebsite() {
 
       {/* ── Hero ── */}
       <div className="relative overflow-hidden">
-        <ProceduralGroundBackground />
         <ScrollExpandMedia
         mediaType="video"
         mediaSrc="/Burt-sun.mp4"
@@ -151,12 +149,9 @@ export default function CentralPointPartnersWebsite() {
       />
       </div>
 
-      {/* ── Core Pillars + Meet Constance — single shared background ── */}
-      <div className="relative overflow-hidden bg-brand-cream">
-        <ProceduralGroundBackground />
-
-        {/* ── Core Pillars ── */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 pt-12 sm:pt-20 pb-14 sm:pb-24">
+      {/* ── Core Pillars ── */}
+      <div className="bg-brand-cream">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-12 sm:pt-20 pb-14 sm:pb-24">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {pillars.map((pillar, i) => (
               <motion.div
@@ -195,8 +190,10 @@ export default function CentralPointPartnersWebsite() {
           </div>
         </div>
 
-        {/* ── Meet Constance ── */}
-        <section className="relative z-10 py-12 md:py-24">
+      </div>
+
+      {/* ── Meet Constance ── */}
+      <section className="bg-brand-cream py-12 md:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 items-start">
 
@@ -208,11 +205,11 @@ export default function CentralPointPartnersWebsite() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <div className="overflow-hidden h-[340px] sm:h-[440px] lg:h-[540px] shadow-[0_4px_8px_rgba(10,22,40,0.08),0_20px_56px_rgba(10,22,40,0.13)]">
+              <div className="overflow-hidden h-[460px] sm:h-[460px] lg:h-[540px] shadow-[0_4px_8px_rgba(10,22,40,0.08),0_20px_56px_rgba(10,22,40,0.13)]">
                 <img
                   src="/Connie-headshot.JPG"
                   alt="Constance Bellisari"
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_8%]"
                 />
               </div>
               {/* Caption strip below photo */}
@@ -282,8 +279,7 @@ export default function CentralPointPartnersWebsite() {
             </motion.div>
           </div>
         </div>
-        </section>
-      </div>{/* end shared background */}
+      </section>
 
       {/* ── Philosophy ── */}
       <section className="relative min-h-[60vh] md:min-h-[85vh] flex items-center overflow-hidden">

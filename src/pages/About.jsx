@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
-import ProceduralGroundBackground from '../components/ui/animated-pattern-cloud';
 
 export default function AboutPage() {
   const values = [
@@ -52,11 +51,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Constance's Story — shared WebGL background ── */}
-      <div className="relative overflow-hidden bg-brand-cream">
-        <ProceduralGroundBackground />
-
-        <section className="relative z-10 py-16 md:py-32">
+      {/* ── Constance's Story ── */}
+      <section className="bg-brand-cream py-16 md:py-32">
           <div className="max-w-6xl mx-auto px-4 sm:px-8">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-start">
 
@@ -68,11 +64,11 @@ export default function AboutPage() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <div className="overflow-hidden h-[360px] sm:h-[500px] lg:h-[660px] shadow-[0_4px_8px_rgba(10,22,40,0.08),0_24px_64px_rgba(10,22,40,0.14)]">
+                <div className="overflow-hidden h-[480px] sm:h-[520px] lg:h-[660px] shadow-[0_4px_8px_rgba(10,22,40,0.08),0_24px_64px_rgba(10,22,40,0.14)]">
                   <img
                     src="/Connie-headshot.JPG"
                     alt="Constance Bellisari"
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-[center_8%]"
                   />
                 </div>
                 <div className="mt-5 flex items-start space-x-3">
@@ -130,8 +126,7 @@ export default function AboutPage() {
 
             </div>
           </div>
-        </section>
-      </div>
+      </section>
 
       {/* ── Mission, Vision & Values ── */}
       <section className="py-16 md:py-28 bg-white">
