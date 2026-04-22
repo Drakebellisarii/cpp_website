@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const MotionLink = motion(Link);
 
 export default function Header({ currentPage = '', initialDark = true }) {
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     if (!initialDark) {
@@ -17,10 +19,22 @@ export default function Header({ currentPage = '', initialDark = true }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [initialDark]);
 
+  const handleServicesClick = (e) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
+    }
+  };
+
   const navItems = [
     { label: 'Home', to: '/', isLink: true },
     { label: 'About', to: '/about', isLink: true },
-    { label: 'Services', href: '/#services', isLink: false },
+    { label: 'Services', onClick: handleServicesClick, isLink: false },
   ];
 
   const pillClass = scrolled
@@ -51,7 +65,7 @@ export default function Header({ currentPage = '', initialDark = true }) {
 
         {/* Nav — always visible, centered between logo and CTA */}
         <nav className="flex-1 flex items-center justify-center px-1 md:px-2">
-          {navItems.map(({ label, to, href, isLink }) => {
+          {navItems.map(({ label, to, onClick, isLink }) => {
             const isActive = currentPage === label.toLowerCase();
             const baseClass = `px-2 md:px-4 py-2 text-[9px] md:text-[10px] font-medium tracking-[0.12em] md:tracking-[0.18em] uppercase transition-colors duration-300 rounded-full hover:bg-white/10`;
             const colorClass = isActive
@@ -63,9 +77,9 @@ export default function Header({ currentPage = '', initialDark = true }) {
                 {label}
               </MotionLink>
             ) : (
-              <motion.a key={label} href={href} className={`${baseClass} ${colorClass}`}>
+              <motion.button key={label} onClick={onClick} className={`${baseClass} ${colorClass} cursor-pointer`}>
                 {label}
-              </motion.a>
+              </motion.button>
             );
           })}
         </nav>
